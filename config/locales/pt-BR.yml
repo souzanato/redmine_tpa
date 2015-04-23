@@ -1,8 +1,41 @@
 # Sample localization file for Portuguese
 
 pt-BR:
-  tag_for_pa_title: "Marcações para Avaliações"
+  # Titles
+  tag_for_pa: "Marcações para Avaliações"
+  project_module_tag_for_pa: "Marcações para Avaliações"
 
-  # Submenu
-  tag_for_pa_appraisals: "Avaliações"
-  tag_for_pa_appraisals_templates: "Modelos de Avaliações"
+  # Personal Appraisal Permissions
+  permission_read_appraisals: "Ver Avaliações"
+  permission_update_appraisals: "Atualizar Avaliações"
+  permission_destroy_appraisals: "Destruir Avaliações"
+  permission_create_appraisals: "Criar Avaliações"
+
+  # Error Messages
+  no_appraisals_found: "Nenhuma avaliação encontrada"
+  no_appraisals_templates_found: "Nenhum modelo de avaliação encontrado"
+
+  # Notice Messages
+  appraisal_successfully_created: "Avaliação criada com sucesso"
+  appraisal_successfully_updated: "Avaliação atualizada com sucesso"
+  appraisal_successfully_destroyed: "Avaliação destruída com sucesso"
+
+  # Links
+  appraisals: "Avaliações"
+  appraisals_templates: "Modelos de Avaliações"  
+  new_appraisal: "Nova Avaliação"
+  new_appraisal_template: "Novo Modelo de Avaliação"
+  destroy_appraisal: "Destruir Avaliação"
+  destroy_appraisal_template: "Destruir Modelo de Avaliação"
+
+  helpers:
+    select:
+      prompt: Por favor selecione
+    submit:
+      create: Criar %{model}
+      submit: Salvar %{model}
+      update: Atualizar %{model}
+
+  activerecord:
+    models:
+      appraisal: "Avaliação"

@@ -4,16 +4,18 @@
 	<table class="table table-hover">
 		<thead>
 			<th>Nome</th>
+			<th>Ações</th>
 		</thead>
 		<tbody>
 			<% @appraisals.each do |a| %>
 				<td><%= a.name %></td>
+				<td><%= a.name %></td>
 			<% end %>
 		</tbody>
 	</table>
-	
+
 <% else %>
-	<div id='flash_error' class='flash error'><%=t('no_appraisals_found')%></div>
+	<div id='flash_error' class='flash error'><%=t('no_appraisals_templates_found')%></div>
 <% end %>
 
 <%= render 'layout/append' %>

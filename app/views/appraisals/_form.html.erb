@@ -1,0 +1,23 @@
+<%= form_for @appraisal, :html => { :class => "form-horizontal appraisal" }, validate: true do |f| %>
+  <div class="form-group">
+    <%= f.label :name, :class => 'col-sm-2 control-label' %>
+    <div class="col-sm-10">
+      <%= f.text_field :name, :class => 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :description, :class => 'col-sm-2 control-label' %>
+    <div class="col-sm-10">
+      <%= f.text_area :description, :class => 'form-control wysihtml5' %>
+    </div>
+  </div>
+
+  <%= f.hidden_field :template, value: false %>
+
+  <div class="form-actions">
+  	<%= f.submit nil, :class => 'btn btn-primary' %>
+  	<%= link_to t("button_cancel"),
+            appraisals_path, :class => 'btn btn-default' %>
+  </div>
+
+<% end %>

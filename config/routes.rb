@@ -1,4 +1,7 @@
 # Plugin's routes
 # See: http://guides.rubyonrails.org/routing.html
 
-get 'appraisals' => 'appraisals#index'
+resources :appraisals
+resources :appraisals_templates
+
+get 'tpa' => 'tpa#index'

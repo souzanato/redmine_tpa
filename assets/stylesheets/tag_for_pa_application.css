@@ -1,6 +1,6 @@
 .sidebar {
     background-color: #f5f5f5;
-    border-right: 1px solid #eee;
+    border: 1px solid #eee;
     bottom: 0;
     display: block;
     left: 0;
@@ -17,8 +17,7 @@
 }
 
 .tpa-page-title {
-    text-align: right;
-    border-bottom: 1px solid #f5f5f5;
+    border-bottom: 1px solid #eee;
 }
 
 .tpa-container {
@@ -35,4 +34,19 @@
 
 .nav > li > a:hover, .nav > li > a:focus {
     background-color: #ddd !important;
+}
+
+.form-actions {
+    background-color: whitesmoke;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-top: 1px solid #e5e5e5;
+    margin-left: -15px;
+    margin-right: -15px;
+    padding: 17px 20px 18px;
+}
+
+.tpa-content {
+    padding-top: 20px;
+    border: 1px solid #eee;
 }

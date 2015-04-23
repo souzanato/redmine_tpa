@@ -1,0 +1,9 @@
+	</div>
+	<div class="col-md-2 sidebar">
+		<ul class="nav nav-sidebar">
+			<li><%= active_link_to "<span class='tpa-left-menu-icon'><i class='fa fa-paper-plane-o'></i></span> #{t('new_appraisal')}".html_safe, new_appraisal_path, active: [["appraisals"],["new"]] %></li>
+			<li><%= active_link_to "<span class='tpa-left-menu-icon'><i class='fa fa-file-o'></i></span> #{t('new_appraisal_template')}".html_safe, new_appraisals_template_path, active: [["appraisals_templates"],["new"]] %></li>
+		</ul>
+	</div>
+	</div>
+</div>

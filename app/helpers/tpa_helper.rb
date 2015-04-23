@@ -1,4 +1,4 @@
-module AppraisalsHelper
+module TpaHelper
 	def title_for_tpa
 		return t('appraisals') if appraisals_path?
 		return t('new_appraisal') if new_appraisal_path?

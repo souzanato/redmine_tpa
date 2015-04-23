@@ -4,7 +4,6 @@ class CreateAppraisals < ActiveRecord::Migration
       t.string :name
       t.text :description
       t.boolean :template
-      t.belongs_to :project, index: true
     end
   end
 end
