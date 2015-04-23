@@ -1,4 +1,4 @@
 = Tag for PA (Performance Appraisal)
 
 Tag for PA is a redmine plugin that helps appraisers and appraisees in Performance Appraisals. The plugin makes possible to create tags that link issues and
-wiki pages to pre-established criteria and organizational objectives.
+wiki pages to pre-established criteria or organizational objectives.
