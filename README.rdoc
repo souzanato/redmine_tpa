@@ -17,7 +17,7 @@ wiki pages to pre-established criteria or organizational objectives.
     git clone https://github.com/hylozero/tag-for-pa.git tag_for_pa
     
 * Run 
-   rake db:migrate_plugins to copy the assets.
+   rake db:migrate_plugins
 	
 * Restart your redmine application.
 
