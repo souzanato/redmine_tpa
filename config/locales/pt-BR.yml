@@ -1,0 +1,8 @@
+# Sample localization file for Portuguese
+
+pt-BR:
+  tag_for_pa_title: "Marcações para Avaliações"
+
+  # Submenu
+  tag_for_pa_appraisals: "Avaliações"
+  tag_for_pa_appraisals_templates: "Modelos de Avaliações"

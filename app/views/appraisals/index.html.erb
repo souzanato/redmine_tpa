@@ -1,0 +1,21 @@
+<% content_for :header_tags do %>
+    <%= stylesheet_link_tag 'tag_for_pa_application', :plugin => 'tag_for_pa' %>
+    <%= stylesheet_link_tag 'bootstrap.min', :plugin => 'tag_for_pa' %>
+    <%= stylesheet_link_tag 'font-awesome.min', :plugin => 'tag_for_pa' %>
+    <%= javascript_include_tag 'bootstrap.min', :plugin => 'tag_for_pa' %>
+<% end %>
+
+<h3 class="tpa-page-title"><%= define_tpa_title %></h3>
+
+<div class="container-fluid tpa-container">
+	<div class="row">
+		<div class="col-sm-3 col-md-2 sidebar">
+			<ul class="nav nav-sidebar">
+				<li><%= active_link_to "<span class='tpa-left-menu-icon'><i class='fa fa-paper-plane'></i></span> #{t('tag_for_pa_appraisals')}".html_safe, appraisals_path, active: /^((?!templates=true).)*$/ %></li>
+				<li><%= active_link_to "<span class='tpa-left-menu-icon'><i class='fa fa-file-o'></i></span> #{t('tag_for_pa_appraisals_templates')}".html_safe, appraisals_path(templates: true), active: /templates=true/ %></li>
+			</ul>
+		</div>
+		<div class="col-md-10"></div>
+
+	</div>
+</div>
