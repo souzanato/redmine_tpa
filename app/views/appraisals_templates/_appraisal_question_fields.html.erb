@@ -1,0 +1,17 @@
+<fieldset class="appraisals-questions">
+  <div class="form-group">
+    <%= f.label :content, :class => 'col-sm-2 control-label' %>
+    <div class="col-sm-9">
+      <%= f.text_field :content, :class => 'form-control' %>
+    </div>
+    <div class="col-sm-1 remove-appraisal-question">
+    	<%= f.hidden_field :_destroy %><%= link_to "<i class='fa fa-trash'></i>".html_safe, '#', class: "btn btn-danger btn-xs remove_fields" %>  
+    </div>
+  </div>
+  <div class="col-md-offset-2">
+	  <%= f.fields_for :appraisal_question_options do |builder| %>
+	  	<%= render 'appraisal_question_option_fields', f: builder %>
+	  <% end %>
+	  <%= link_to_add_fields t("add_appraisal_question_option"), f, :appraisal_question_options %>
+  </div>
+</fieldset>

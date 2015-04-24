@@ -12,6 +12,7 @@ pt-BR:
   permission_create_appraisals: "Criar Avaliações"
 
   # Error Messages
+  restrict_dependency_on_destroy: "Este registro possui dependências que anulam sua destruição."
   no_appraisals_found: "Nenhuma avaliação encontrada"
   no_appraisals_templates_found: "Nenhum modelo de avaliação encontrado"
 
@@ -22,13 +23,27 @@ pt-BR:
 
   # Links
   appraisals: "Avaliações"
+  creating_appraisals: "Criando Avaliações"  
   appraisals_templates: "Modelos de Avaliações"  
-  new_appraisal: "Nova Avaliação"
-  new_appraisal_template: "Novo Modelo de Avaliação"
-  destroy_appraisal: "Destruir Avaliação"
-  destroy_appraisal_template: "Destruir Modelo de Avaliação"
+  creating_appraisals_templates: "Criando Modelos de Avaliações"
+  add_appraisal_question: "Adicionar Pergunta"
+  add_appraisal_question_option: "Adicionar Opção de Resposta"
 
+  # titles
+  appraisal_template_general_info: "Informações Gerais"
+  appraisal_questions_info: "Critérios da Avaliação"
+
+  # Helpers
   helpers:
+    links:
+      destroy: "Destruir"
+      edit: "Editar"
+      back: "Voltar"
+      new: "Criar"
+      creating: "Criando..."
+      updating: "Editando..."
+      reading: "Visualizando..."
+      confirm: "Você tem certeza?"
     actions: "Ações"
     select:
       prompt: Por favor selecione
@@ -37,12 +52,19 @@ pt-BR:
       submit: Salvar %{model}
       update: Atualizar %{model}
 
+  # Active Record
   activerecord:
     models:
       appraisal: "Avaliação"
+      appraisal_question: "Critério"
+      appraisal_question_option: "Opção"
     attributes:
       appraisal:
         name: "Nome"
         description: "Descrição"
         template: "Modelo de Avaliação"
         id: "ID"
+      appraisal_question:
+        content: "Pergunta"
+      appraisal_question_option:
+        content: "Opção"

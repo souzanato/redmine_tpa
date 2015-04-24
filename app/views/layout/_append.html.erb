@@ -1,8 +1,12 @@
 	</div>
 	<div class="col-md-2 sidebar">
 		<ul class="nav nav-sidebar">
-			<li><%= active_link_to "<span class='tpa-left-menu-icon'><i class='fa fa-paper-plane-o'></i></span> #{t('new_appraisal')}".html_safe, new_appraisal_path, active: [["appraisals"],["new"]] %></li>
-			<li><%= active_link_to "<span class='tpa-left-menu-icon'><i class='fa fa-file-o'></i></span> #{t('new_appraisal_template')}".html_safe, new_appraisals_template_path, active: [["appraisals_templates"],["new"]] %></li>
+			<% if defined?(create_url) %>
+				<li><%= link_to "<span class='tpa-left-menu-icon'><i class='fa fa-magic'></i></span> #{t('helpers.links.new')}".html_safe, create_url %></li>	
+			<% end %>		
+			<% if defined?(bomb_text) and defined?(bomb_icon) %>	
+				<li><%= link_to "<span class='tpa-left-menu-icon'><i class='fa fa-#{bomb_icon}'></i></span> #{bomb_text}".html_safe, '#' %></li>	
+			<% end %>
 		</ul>
 	</div>
 	</div>

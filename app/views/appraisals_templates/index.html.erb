@@ -4,13 +4,11 @@
 <% if @appraisals.any? %>
 	<table class="table table-hover">
 		<thead>
-			<th><%= model_class.human_attribute_name(:id) %>:</th>
 			<th><%= model_class.human_attribute_name(:name) %>:</th>
 		</thead>
 		<tbody>
 			<% @appraisals.each do |a| %>
 			<tr>
-				<td><%= link_to a.id, appraisals_template_path(a) %></td>
 				<td><%= link_to a.name, appraisals_template_path(a) %></td>
 			</tr>
 			<% end %>
@@ -21,4 +19,4 @@
 	<div id='flash_error' class='flash error'><%=t('no_appraisals_templates_found')%></div>
 <% end %>
 
-<%= render 'layout/append' %>
+<%= render partial: 'layout/append', locals: {create_url: new_appraisals_template_path} %>

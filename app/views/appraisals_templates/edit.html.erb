@@ -1,0 +1,7 @@
+<%= render 'layout/prepend' %>
+
+<%= form_for @appraisal, :url => appraisals_template_path(@appraisal), method: :put, :html => { :class => "form-horizontal appraisal" } do |f| %>
+	<%= render partial: 'form', locals: {f: f} %>
+<% end %>
+
+<%= render partial: 'layout/append', locals: {bomb_text: t('helpers.links.updating'), bomb_icon: 'smile-o'} %>

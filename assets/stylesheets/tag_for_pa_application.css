@@ -1,3 +1,11 @@
+dd {
+    margin-left: 0;
+}
+
+.btn.btn-danger {
+    color: white;
+}
+
 .sidebar {
     background-color: #f5f5f5;
     border: 1px solid #eee;

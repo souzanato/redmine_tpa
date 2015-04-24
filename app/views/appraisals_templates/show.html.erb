@@ -4,9 +4,19 @@
 <dl class="dl-horizontal">
   <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
   <dd><%= @appraisal.name %></dd>
-  <hr>
   <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
   <dd><%= @appraisal.description %></dd>
+  <dt><strong><%= AppraisalQuestion.model_name.human.titleize.pluralize %>:</strong></dt>
+
+  <% @appraisal.appraisal_questions.each do |aq| %>
+  <dt class="appraisal-questions-list"><%= aq.content %>:</dt>
+    <dd class="appraisal-questions-list">
+      <% aq.appraisal_question_options.each do |qo| %>
+        <%= qo.content %><br/>
+      <% end %>
+    </dd>
+  <% end %>
+
 </dl>
 
 <div class="form-actions">
@@ -21,4 +31,4 @@
               :class => 'btn btn-danger' %>
 </div>
 
-<%= render 'layout/append' %>
+<%= render partial: 'layout/append', locals: {bomb_text: t('helpers.links.reading'), bomb_icon: :eye} %>

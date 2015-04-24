@@ -1,3 +1,7 @@
 <%= render 'layout/prepend' %>
-<%= render 'form' %>
-<%= render 'layout/append' %>
+
+<%= form_for @appraisal, :url => appraisals_templates_path, method: :post, :html => { :class => "form-horizontal appraisal" } do |f| %>
+	<%= render partial: 'form', locals: {f: f} %>
+<% end %>
+
+<%= render partial: 'layout/append', locals: {bomb_text: t('helpers.links.creating'), bomb_icon: :bomb} %>

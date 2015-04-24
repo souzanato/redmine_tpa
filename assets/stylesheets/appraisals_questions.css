@@ -1,0 +1,29 @@
+.appraisals-questions {
+	    background-color: whitesmoke;
+    border: 1px solid #eee;
+    margin-bottom: 10px;
+    padding-top: 12px;
+}
+
+.appraisals-question-options {
+    background-color: #e8e8e8;
+    border: 1px solid #e2e2e2;
+    border-radius: 3px;
+    margin-bottom: 5px;
+    padding-top: 10px;
+}
+
+dt {
+	border-bottom: 1px solid #eee;
+}
+
+dd {
+    margin-bottom: 30px;
+}
+
+dt.appraisal-questions-list {
+    border-bottom: none;
+}
+dd.appraisal-questions-list {
+    margin-left: 5px;
+}

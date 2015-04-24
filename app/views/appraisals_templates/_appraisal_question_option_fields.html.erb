@@ -1,0 +1,11 @@
+<fieldset class="appraisals-question-options">
+  <div class="form-group">
+    <%= f.label :content, :class => 'col-sm-2 control-label' %>
+    <div class="col-sm-9">
+      <%= f.text_field :content, :class => 'form-control' %>
+    </div>
+    <div class="col-sm-1" style="margin-top: 5px;">
+    	<%= f.hidden_field :_destroy %><%= link_to "<i class='fa fa-trash'></i>".html_safe, '#', class: "btn btn-danger btn-xs remove_fields" %>  
+    </div>
+  </div>
+</fieldset>
