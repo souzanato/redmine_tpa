@@ -1,15 +1,18 @@
 <%= render 'layout/prepend' %>
+<%- model_class = Appraisal -%>
 
 <% if @appraisals.any? %>
 	<table class="table table-hover">
 		<thead>
-			<th>Nome</th>
-			<th>Ações</th>
+			<th><%= model_class.human_attribute_name(:id) %>:</th>
+			<th><%= model_class.human_attribute_name(:name) %>:</th>
 		</thead>
 		<tbody>
 			<% @appraisals.each do |a| %>
-				<td><%= a.name %></td>
-				<td><%= a.name %></td>
+			<tr>
+				<td><%= link_to a.id, appraisals_template_path(a) %></td>
+				<td><%= link_to a.name, appraisals_template_path(a) %></td>
+			</tr>
 			<% end %>
 		</tbody>
 	</table>

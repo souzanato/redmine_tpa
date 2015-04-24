@@ -29,6 +29,7 @@ pt-BR:
   destroy_appraisal_template: "Destruir Modelo de Avaliação"
 
   helpers:
+    actions: "Ações"
     select:
       prompt: Por favor selecione
     submit:
@@ -39,3 +40,9 @@ pt-BR:
   activerecord:
     models:
       appraisal: "Avaliação"
+    attributes:
+      appraisal:
+        name: "Nome"
+        description: "Descrição"
+        template: "Modelo de Avaliação"
+        id: "ID"

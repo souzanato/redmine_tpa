@@ -18,7 +18,6 @@
 
       respond_to do |format|
         if @appraisal.save
-          byebug
           format.html { redirect_to @appraisal, notice: t('appraisal_successfully_created') }
           format.json { render :show, status: :created, location: @appraisal }
         else
