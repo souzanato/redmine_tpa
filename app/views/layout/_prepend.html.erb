@@ -6,13 +6,14 @@
     <%= stylesheet_link_tag 'appraisals_questions', :plugin => 'tag_for_pa' %>
     <%= javascript_include_tag 'bootstrap.min', :plugin => 'tag_for_pa' %>
     <%= javascript_include_tag 'appraisals_templates', :plugin => 'tag_for_pa' %>
+    <%= javascript_include_tag 'tag_for_pa_application', :plugin => 'tag_for_pa' %>
 <% end %>
 
 <h3 class="tpa-page-title"><%=title_for_tpa%></h3>
  
 <div class="container-fluid tpa-container">
 	<div class="row">
-	<div class="col-md-2 sidebar">
+	<div class="col-md-2 sidebar left">
 		<ul class="nav nav-sidebar">
 			<li><%= active_link_to "<span class='tpa-left-menu-icon'><i class='fa fa-paper-plane'></i></span> #{t('appraisals')}".html_safe, appraisals_path, active: [["appraisals"],["show","index"]] %></li>
 			<li><%= active_link_to "<span class='tpa-left-menu-icon'><i class='fa fa-file'></i></span> #{t('appraisals_templates')}".html_safe, appraisals_templates_path, active: [["appraisals_templates"],["show","index"]] %></li>

@@ -1,11 +1,21 @@
 <fieldset class="appraisals-question-options">
   <div class="form-group">
-    <%= f.label :content, :class => 'col-sm-2 control-label' %>
-    <div class="col-sm-9">
+    <%= f.label t('appraisal_question_option_content'), :class => 'col-sm-2 control-label' %>
+    <div class="col-sm-10">
       <%= f.text_field :content, :class => 'form-control' %>
-    </div>
-    <div class="col-sm-1" style="margin-top: 5px;">
-    	<%= f.hidden_field :_destroy %><%= link_to "<i class='fa fa-trash'></i>".html_safe, '#', class: "btn btn-danger btn-xs remove_fields" %>  
+      <div class="col-md-6">
+        <span class="span-danger"><%= display_errors(f.object, :content) %></span><br/>
+      </div>
+      <div class="col-md-6" style="text-align: right;">
+        <% if any_restrict_dependecy?(f.object)  %>
+          <span class="restrict-dependency">
+            <%= t('this_object_has_restrict_dependencies', :dependency => any_restrict_dependecy?(f.object).first) %>
+          </span>
+        <% else %>
+          <%= f.hidden_field :_destroy %>
+          <%= link_to t('remove_appraisal_question_option'), '#', class: "remove_fields" %>  
+        <% end %>
+      </div>
     </div>
   </div>
 </fieldset>

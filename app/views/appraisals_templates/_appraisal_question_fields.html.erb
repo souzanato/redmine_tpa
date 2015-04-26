@@ -1,17 +1,29 @@
 <fieldset class="appraisals-questions">
   <div class="form-group">
-    <%= f.label :content, :class => 'col-sm-2 control-label' %>
-    <div class="col-sm-9">
+    <%= f.label t('appraisal_question_content'), :class => 'col-sm-2 control-label' %>
+    <div class="col-sm-10">
       <%= f.text_field :content, :class => 'form-control' %>
-    </div>
-    <div class="col-sm-1 remove-appraisal-question">
-    	<%= f.hidden_field :_destroy %><%= link_to "<i class='fa fa-trash'></i>".html_safe, '#', class: "btn btn-danger btn-xs remove_fields" %>  
+      <div class="col-md-6" style="padding-left: 0;">
+        <span class="span-danger"><%= display_errors(f.object, :content) %></span><br/>
+      </div>
+      <div class="col-md-6" style="text-align: right;">
+        <% if any_restrict_dependecy?(f.object)  %>
+          <span class="restrict-dependency">
+            <%= t('remove_dependencies_and_update_the_form_to_enable_destroy', :dependency => any_restrict_dependecy?(f.object).first) %>
+          </span>
+        <% else %>
+          <%= f.hidden_field :_destroy %>
+          <%= link_to t('remove_appraisal_question'), '#', class: "remove_fields" %>  
+        <% end %>
+      </div>
     </div>
   </div>
+  <hr>
   <div class="col-md-offset-2">
 	  <%= f.fields_for :appraisal_question_options do |builder| %>
 	  	<%= render 'appraisal_question_option_fields', f: builder %>
 	  <% end %>
-	  <%= link_to_add_fields t("add_appraisal_question_option"), f, :appraisal_question_options %>
+	  <%= link_to_add_fields t("add_appraisal_question_option"), f, :appraisal_question_options %><br/>
+    <span class="span-danger"><%= display_errors(f.object, :appraisal_question_options) %></span><br/>
   </div>
 </fieldset>

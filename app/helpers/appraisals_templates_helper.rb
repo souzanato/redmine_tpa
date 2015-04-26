@@ -23,4 +23,22 @@ module AppraisalsTemplatesHelper
 	    link_to(name, '#', class: "add_fields", data: {id: id, fields: fields.gsub("\n", "")})
   	end
 
+  	def display_errors(object, attribute)
+  		unless object.errors.messages[attribute].blank?
+  			 object.errors.messages[attribute].join(', ')
+  		end
+  	end
+
+  	def any_restrict_dependecy?(model_object) 
+      dependecie_models = Array.new
+      model_object.class.reflect_on_all_associations(:has_many).each do |hm| 
+         if model_object.method(hm.name.to_sym).call.any? and hm.options[:dependent] == :restrict_with_exception
+           model_object.method(hm.name.to_sym).call.each do |d|
+             dependecie_models << "".concat(d.class.to_s.constantize.model_name.human.pluralize) unless dependecie_models.include?(" ".concat(d.class.to_s.constantize.model_name.human.pluralize))          
+           end
+           return dependecie_models
+         end
+      end     
+      false
+    end   
 end

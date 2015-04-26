@@ -1,16 +1,28 @@
+<% if f.object.errors.messages[:base].try(:any?) %>
+   <div id='flash_warning' class='flash warning'>
+     <ul>
+       <% f.object.errors.messages[:base].each do |e| %>
+        <li><%= e %></li>
+       <% end %>
+     </ul>
+   </div>
+<% end %>
+
  <fieldset>
  <legend><%=t('appraisal_template_general_info')%></legend>
   <div class="form-group">
-    <%= f.label :name, :class => 'col-sm-2 control-label' %>
+    <%= f.label t('appraisal_name'), :class => 'col-sm-2 control-label' %>
     <div class="col-sm-10">
       <%= f.text_field :name, :class => 'form-control' %>
+      <span class="span-danger"><%= display_errors(f.object, :name) %></span> 
     </div>
   </div>
   <div class="form-group">
-    <%= f.label :description, :class => 'col-sm-2 control-label' %>
+    <%= f.label t('appraisal_description'), :class => 'col-sm-2 control-label' %>
     <div class="col-sm-10">
       <%= f.text_area :description, :class => 'form-control wysihtml5' %>
     </div>
+    <span class="span-danger"><%= display_errors(f.object, :description) %></span> 
   </div>
   
   <%= f.hidden_field :template, value: true %>
@@ -21,6 +33,7 @@
       <%= render 'appraisal_question_fields', f: builder %>
     <% end %>
     <div class="add-appraisal-question-div"><%= link_to_add_fields t("add_appraisal_question"), f, :appraisal_questions %></div>
+    <span class="span-danger"><%= display_errors(f.object, :appraisal_questions) %></span> 
   </fieldset>
 
   <div class="form-actions">

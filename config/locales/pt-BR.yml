@@ -4,8 +4,10 @@ pt-BR:
   # Titles
   tag_for_pa: "Marcações para Avaliações"
   project_module_tag_for_pa: "Marcações para Avaliações"
+  appraisal_template_general_info: "Informações Gerais"
+  appraisal_questions_info: "Critérios da Avaliação"
 
-  # Personal Appraisal Permissions
+  # Permissions
   permission_read_appraisals: "Ver Avaliações"
   permission_update_appraisals: "Atualizar Avaliações"
   permission_destroy_appraisals: "Destruir Avaliações"
@@ -13,8 +15,13 @@ pt-BR:
 
   # Error Messages
   restrict_dependency_on_destroy: "Este registro possui dependências que anulam sua destruição."
+  remove_dependencies_and_update_the_form_to_enable_destroy: "Remova as dependencias (%{dependency}) e atualize o formulário para habilitar a remoção."
   no_appraisals_found: "Nenhuma avaliação encontrada"
   no_appraisals_templates_found: "Nenhum modelo de avaliação encontrado"
+  insert_at_least_one_appraisal_question: "Entre com pelo menos uma pergunta"
+  insert_at_least_one_appraisal_question_option: "Entre com pelo menos uma opção"
+  duplicate_appraisal_questions: "A pergunta \"%{question}\" parece estar duplicada."
+  duplicate_appraisal_question_options: "A pergunta \"%{question}\" parece estar com a opção \"%{option}\" duplicada."
 
   # Notice Messages
   appraisal_successfully_created: "Avaliação criada com sucesso"
@@ -27,11 +34,15 @@ pt-BR:
   appraisals_templates: "Modelos de Avaliações"  
   creating_appraisals_templates: "Criando Modelos de Avaliações"
   add_appraisal_question: "Adicionar Pergunta"
-  add_appraisal_question_option: "Adicionar Opção de Resposta"
+  add_appraisal_question_option: "Adicionar Opção"
+  remove_appraisal_question: "Remover pergunta"
+  remove_appraisal_question_option: "Remover opção"
 
-  # titles
-  appraisal_template_general_info: "Informações Gerais"
-  appraisal_questions_info: "Critérios da Avaliação"
+  # labels
+  appraisal_name: "Nome"
+  appraisal_description: "Descrição"
+  appraisal_question_content: "Critério"
+  appraisal_question_option_content: "Opção"
 
   # Helpers
   helpers:

@@ -1,11 +1,11 @@
 	</div>
-	<div class="col-md-2 sidebar">
-		<ul class="nav nav-sidebar">
+	<div class="col-md-2 sidebar right">
+		<ul class="nav nav-sidebar tpa-right-menu">
 			<% if defined?(create_url) %>
 				<li><%= link_to "<span class='tpa-left-menu-icon'><i class='fa fa-magic'></i></span> #{t('helpers.links.new')}".html_safe, create_url %></li>	
 			<% end %>		
 			<% if defined?(bomb_text) and defined?(bomb_icon) %>	
-				<li><%= link_to "<span class='tpa-left-menu-icon'><i class='fa fa-#{bomb_icon}'></i></span> #{bomb_text}".html_safe, '#' %></li>	
+				<li><%= link_to "<span class='tpa-left-menu-icon shake-it'><i class='fa fa-#{bomb_icon}'></i></span> #{bomb_text}".html_safe, '#' %></li>	
 			<% end %>
 		</ul>
 	</div>
