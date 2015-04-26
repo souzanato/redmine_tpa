@@ -68,6 +68,8 @@
         :description, 
         :project_id, 
         :template,
+        :start_date,
+        :end_date,
         appraisal_questions_attributes: [
           :id,
           :content,

@@ -37,7 +37,7 @@ module ActiveRecord
       end
       if collection.length > hashes.length
         message ||= I18n.t('duplicate_appraisal_question_options', question: collection.first.appraisal_question.content, option: collection.first.content)
-        self.errors.add(:base, message)
+        self.errors.add(:nested_base, message)
       end
     end
   end

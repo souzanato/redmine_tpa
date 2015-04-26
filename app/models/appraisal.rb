@@ -1,11 +1,17 @@
 class Appraisal < ActiveRecord::Base
   unloadable
   validates_presence_of :name, :template
+  validates_presence_of :start_date, unless: lambda { |a| a.template }
   validates_uniqueness_of :name
-  attr_accessible :name, :description, :template, :appraisal_questions_attributes
+  attr_accessible :name, :description, :start_date, :end_date, :template, :appraisal_questions_attributes
 
   has_many :appraisal_questions, dependent: :destroy
   accepts_nested_attributes_for :appraisal_questions, allow_destroy: true
+
+  validate :end_date_validation, if: lambda {|a| a.end_date.present? }
+  def end_date_validation
+    errors.add(:end_date, I18n.t('appraisal_end_dat_must_be_after_start_date')) unless self.end_date > self.start_date
+  end
 
   validate :at_least_one_question
   def at_least_one_question
@@ -45,7 +51,7 @@ module ActiveRecord
       end
       if collection.length > hashes.length
         message ||= I18n.t('duplicate_appraisal_questions', question: collection.first.content)
-        self.errors.add(:base, message)
+        self.errors.add(:nested_base, message)
       end
     end
   end

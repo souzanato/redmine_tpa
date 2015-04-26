@@ -2,10 +2,11 @@
 
 pt-BR:
   # Titles
-  tag_for_pa: "Marcações para Avaliações"
+  tag_for_pa: "TPA"
   project_module_tag_for_pa: "Marcações para Avaliações"
   appraisal_template_general_info: "Informações Gerais"
   appraisal_questions_info: "Critérios da Avaliação"
+  appraisal_validity: "Vigência"
 
   # Permissions
   permission_read_appraisals: "Ver Avaliações"
@@ -22,6 +23,7 @@ pt-BR:
   insert_at_least_one_appraisal_question_option: "Entre com pelo menos uma opção"
   duplicate_appraisal_questions: "A pergunta \"%{question}\" parece estar duplicada."
   duplicate_appraisal_question_options: "A pergunta \"%{question}\" parece estar com a opção \"%{option}\" duplicada."
+  appraisal_end_dat_must_be_after_start_date: "Data final menor que data inicial"
 
   # Notice Messages
   appraisal_successfully_created: "Avaliação criada com sucesso"
@@ -43,6 +45,8 @@ pt-BR:
   appraisal_description: "Descrição"
   appraisal_question_content: "Critério"
   appraisal_question_option_content: "Opção"
+  appraisal_start_date: "Data inicial"
+  appraisal_end_date: "Data final"
 
   # Helpers
   helpers:

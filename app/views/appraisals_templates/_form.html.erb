@@ -1,4 +1,4 @@
-<% if f.object.errors.messages[:base].try(:any?) %>
+<% if f.object.errors.messages[:nested_base].try(:any?) %>
    <div id='flash_warning' class='flash warning'>
      <ul>
        <% f.object.errors.messages[:base].each do |e| %>

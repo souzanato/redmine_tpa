@@ -3,6 +3,8 @@ class CreateAppraisals < ActiveRecord::Migration
     create_table :appraisals do |t|
       t.string :name
       t.text :description
+      t.date :start_date
+      t.date :end_date
       t.boolean :template
     end
   end

@@ -14,6 +14,25 @@
 
   <%= f.hidden_field :template, value: false %>
 
+  <legend><%= t('appraisal_validity') %></legend>
+  <div class="form-group">
+    <%= f.label t('appraisal_start_date'), :class => 'col-sm-2 control-label' %>
+    <div class="col-sm-4">
+      <%= f.text_field :start_date, :class => 'form-control datepicker' %>
+      <span class="span-danger"><%= display_errors(f.object, :start_date) %></span> 
+    </div>
+    
+  </div>
+
+  <div class="form-group">
+    <%= f.label t('appraisal_end_date'), :class => 'col-sm-2 control-label' %>
+    <div class="col-sm-4">
+      <%= f.text_field :end_date, :class => 'form-control datepicker' %>
+      <span class="span-danger"><%= display_errors(f.object, :end_date) %></span> 
+    </div>    
+  </div>
+
+
   <div class="form-actions">
   	<%= f.submit nil, :class => 'btn btn-primary' %>
   	<%= link_to t("button_cancel"),
