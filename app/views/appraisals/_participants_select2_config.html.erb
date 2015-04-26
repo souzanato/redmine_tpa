@@ -1,0 +1,52 @@
+<script>
+		function participantFormatResult(participant) {
+		    var markup = "<table class='participant-result'><tr>";
+		    markup += "<td class='participant-info'><div class='participant-title'>" + participant.participant_info + "</div>";
+		    markup += "</td></tr></table>"
+		    return markup;
+		}
+		function participantFormatSelection(participant) {
+		    return (participant.participant_info);
+		}	
+</script>
+
+<script>
+		$(document).ready(function(){
+			$("#participant_ids").select2({
+				placeholder: "<%=t('appraisal_participants')%>",
+				ajax: {
+					url: '/config/unidades_organizacionais.json',
+					dataType: 'json',
+					data: function (term, page) {
+						return {
+							select2_on: true,
+							all_units: true,
+							q: term,
+							page_limit: 10,
+							page: page
+						};
+					},
+					results: function (data, page) {
+					    var more = (page * 10) < data.total; 
+					    return {results: data.organizational_units, more: more};
+					}
+				},
+				formatResult: participantFormatResult,
+				formatSelection: participantFormatSelection,
+			    dropdownCssClass: "bigdrop", 
+					formatSearching: function () { return "Buscando..."; },
+					formatNoMatches: function () { return "Nenhum resultado encontrado."; },			
+					escapeMarkup: function (m) { return m; }
+			});
+
+			<% if (action_name == 'edit' or action_name == 'update') and (@organizational_unit.try(:parent_id)) %>
+				$('#organizational_unit_parent_id').select2('data', { id: <%=@organizational_unit.parent.id%>, uo_info: '<%= "#{@organizational_unit.get_parent.acronym} - #{@organizational_unit.parent.name}" %>' });
+			<% elsif action_name == 'create' %>
+				<% unless f.object.organizational_unit.nil? %>
+					$('#organizational_unit_parent_id').select2('data', { id: <%=f.object.parent.id%>, uo_info: '<%= "#{f.object.get_parent.acronym} - #{f.object.parent.name}" %>' });
+				<% end %>
+			<% end %>
+
+
+		});
+</script>

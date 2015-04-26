@@ -1,14 +1,9 @@
 <%= form_for @appraisal, :html => { :class => "form-horizontal appraisal" }, validate: true do |f| %>
   <div class="form-group">
-    <%= f.label :name, :class => 'col-sm-2 control-label' %>
+    <%= f.label t('appraisal_template'), :class => 'col-sm-2 control-label' %>
     <div class="col-sm-10">
-      <%= f.text_field :name, :class => 'form-control' %>
-    </div>
-  </div>
-  <div class="form-group">
-    <%= f.label :description, :class => 'col-sm-2 control-label' %>
-    <div class="col-sm-10">
-      <%= f.text_area :description, :class => 'form-control wysihtml5' %>
+      <%= select_tag 'appraisal[appraisal_template_id]', options_from_collection_for_select(Appraisal.where(template: true), :id, :name, f.object.appraisal_template_id), prompt: t('helpers.select.prompt'), class: 'form-control' %>
+      <span class="span-danger"><%= display_errors(f.object, :appraisal_template_id) %></span> 
     </div>
   </div>
 

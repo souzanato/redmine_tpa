@@ -35,9 +35,9 @@ pt-BR:
   creating_appraisals: "Criando Avaliações"  
   appraisals_templates: "Modelos de Avaliações"  
   creating_appraisals_templates: "Criando Modelos de Avaliações"
-  add_appraisal_question: "Adicionar Pergunta"
+  add_appraisal_question: "Adicionar Critério"
   add_appraisal_question_option: "Adicionar Opção"
-  remove_appraisal_question: "Remover pergunta"
+  remove_appraisal_question: "Remover critério"
   remove_appraisal_question_option: "Remover opção"
 
   # labels
@@ -47,9 +47,13 @@ pt-BR:
   appraisal_question_option_content: "Opção"
   appraisal_start_date: "Data inicial"
   appraisal_end_date: "Data final"
+  appraisal_template: "Modelo"
+  appraisal_participants: "Participantes"
 
   # Helpers
   helpers:
+    select:
+      prompt: "Selecione por favor"
     links:
       destroy: "Destruir"
       edit: "Editar"

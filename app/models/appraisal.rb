@@ -3,10 +3,14 @@ class Appraisal < ActiveRecord::Base
   validates_presence_of :name, :template
   validates_presence_of :start_date, unless: lambda { |a| a.template }
   validates_uniqueness_of :name
-  attr_accessible :name, :description, :start_date, :end_date, :template, :appraisal_questions_attributes
+  attr_accessible :name, :description, :start_date, :end_date, :template, :appraisal_questions_attributes, :appraisal_template_id
+  attr_accessor :appraisal_template_id
 
   has_many :appraisal_questions, dependent: :destroy
   accepts_nested_attributes_for :appraisal_questions, allow_destroy: true
+
+  has_many :participants, foreign_key: 'user_id', through: :appraisal_participants
+  has_many :appraisal_participants, dependent: :destroy
 
   validate :end_date_validation, if: lambda {|a| a.end_date.present? }
   def end_date_validation
@@ -16,6 +20,11 @@ class Appraisal < ActiveRecord::Base
   validate :at_least_one_question
   def at_least_one_question
   	errors.add(:appraisal_questions, I18n.t('insert_at_least_one_appraisal_question')) unless self.appraisal_questions.any?
+  end
+
+  validate :appraisal_template_id_presence
+  def appraisal_template_id_presence
+    errors.add(:appraisal_template_id, I18n.t('activerecord.errors.messages.empty')) if (self.template == false and self.appraisal_template_id.blank?)
   end
 
   # https://rails.lighthouseapp.com/projects/8994/tickets/2160-nested_attributes-validates_uniqueness_of-fails#ticket-2160-11

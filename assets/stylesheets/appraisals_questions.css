@@ -14,14 +14,6 @@
     padding-top: 10px;
 }
 
-dt {
-	border-bottom: 1px solid #eee;
-}
-
-dd {
-    margin-bottom: 30px;
-}
-
 dt.appraisal-questions-list {
     border-bottom: none;
 }

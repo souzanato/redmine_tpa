@@ -16,4 +16,4 @@
 	<div id='flash_warning' class='flash warning'><%=t('no_appraisals_found')%></div>
 <% end %>
 
-<%= render 'layout/append' %>
+<%= render partial: 'layout/append', locals: {create_url: new_appraisal_path} %>

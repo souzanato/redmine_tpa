@@ -36,6 +36,16 @@ dd {
     margin-right: 10px;
 }
 
+dt {
+    border-bottom: 1px solid #eee;
+    margin-bottom: 10px;
+}
+
+dd {
+    margin-bottom: 30px;
+}
+
+
 .span-danger {
     color: #a94442;
 }

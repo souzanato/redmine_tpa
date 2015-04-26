@@ -44,7 +44,7 @@
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def appraisal_params
-      params[:appraisal].permit(:name, :description, :project_id, :template)
+      params[:appraisal].permit(:name, :description, :project_id, :template, :appraisal_template_id)
     end
 
   end

@@ -13,4 +13,11 @@ module AppraisalsHelper
 		path = Rails.application.routes.recognize_path(request.original_url)
 		path[:controller] == 'appraisals' and path[:action] == 'new'
 	end
+
+  	def display_errors(object, attribute)
+  		unless object.errors.messages[attribute].blank?
+  			 object.errors.messages[attribute].join(', ')
+  		end
+  	end
+
 end
