@@ -1,22 +1,34 @@
 <%= form_for @appraisal, :html => { :class => "form-horizontal appraisal" }, validate: true do |f| %>
+<%=@appraisal.errors.inspect%>
+  <legend><%= t('appraisal_general_info') %></legend>
   <div class="form-group">
     <%= f.label t('appraisal_template'), :class => 'col-sm-2 control-label' %>
     <div class="col-sm-10">
-      <%= select_tag 'appraisal[appraisal_template_id]', options_from_collection_for_select(Appraisal.where(template: true), :id, :name, f.object.appraisal_template_id), prompt: t('helpers.select.prompt'), class: 'form-control' %>
+      <%= f.collection_select :appraisal_id, Appraisal.where(template: true), :id, :first_60_name_words, {prompt: true}, class: 'form-control' %>
       <span class="span-danger"><%= display_errors(f.object, :appraisal_template_id) %></span> 
     </div>
   </div>
 
-  <%= f.hidden_field :template, value: false %>
+  <div class="form-group">
+    <%= f.label t('appraisal_participants'), :class => 'col-sm-2 control-label' %>
+    <div class="col-sm-10">
+      <%= hidden_field_tag 'appraisal[user_ids][]', nil, style: 'width: 100%;' %>
+      <%= render partial: 'participants_select2_config', locals: {f: f} %>
+      <span class="span-danger"><%= display_errors(f.object, :user_ids) %></span> 
+    </div>
+    
+  </div>
 
   <legend><%= t('appraisal_validity') %></legend>
   <div class="form-group">
     <%= f.label t('appraisal_start_date'), :class => 'col-sm-2 control-label' %>
     <div class="col-sm-4">
-      <%= f.text_field :start_date, :class => 'form-control datepicker' %>
+      <%= f.text_field :start_date, :class => 'form-control' %>
       <span class="span-danger"><%= display_errors(f.object, :start_date) %></span> 
     </div>
-    
+    <div class="col-sm-1">
+      <%= calendar_for('appraisal_start_date') %>
+    </div>    
   </div>
 
   <div class="form-group">

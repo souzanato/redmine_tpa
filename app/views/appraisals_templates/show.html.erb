@@ -9,8 +9,8 @@
   <dt><strong><%= AppraisalQuestion.model_name.human.titleize.pluralize %>:</strong></dt>
 
   <% @appraisal.appraisal_questions.each do |aq| %>
-  <dt class="appraisal-questions-list"><i class="fa fa-angle-double-right"></i> <%= aq.content %>:</dt>
-    <dd class="appraisal-questions-list">
+  <dt class="appraisal-lists"><i class="fa fa-angle-double-right"></i> <%= aq.content %>:</dt>
+    <dd class="appraisal-lists">
       <% aq.appraisal_question_options.each do |qo| %>
         <i class="fa fa-angle-right"></i> <%= qo.content %><br/>
       <% end %>

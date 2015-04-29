@@ -1,15 +1,21 @@
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('.dl-horizontal dd, td, .property p').filter(function() {
+          return ! $.trim($(this).html());
+        }).html("<p class='text-danger'><%= t('no_data') %></p>");
+    });
+</script>
+
 <% content_for :header_tags do %>
     <%= stylesheet_link_tag 'tag_for_pa_application', :plugin => 'tag_for_pa' %>
     <%= stylesheet_link_tag 'bootstrap.min', :plugin => 'tag_for_pa' %>
     <%= stylesheet_link_tag 'font-awesome.min', :plugin => 'tag_for_pa' %>
     <%= stylesheet_link_tag 'appraisals_templates', :plugin => 'tag_for_pa' %>
     <%= stylesheet_link_tag 'appraisals_questions', :plugin => 'tag_for_pa' %>
-    <%= stylesheet_link_tag 'select2.min', :plugin => 'tag_for_pa' %>
+    <%= stylesheet_link_tag 'select2', :plugin => 'tag_for_pa' %>
     <%= javascript_include_tag 'bootstrap.min', :plugin => 'tag_for_pa' %>
     <%= javascript_include_tag 'appraisals_templates', :plugin => 'tag_for_pa' %>
     <%= javascript_include_tag 'tag_for_pa_application', :plugin => 'tag_for_pa' %>
-    <%= javascript_include_tag 'bootstrap-datepicker.min', :plugin => 'tag_for_pa' %>
-    <%= javascript_include_tag 'bootstrap-datepicker.pt-BR.min', :plugin => 'tag_for_pa' %>
     <%= javascript_include_tag 'select2.min', :plugin => 'tag_for_pa' %>
 <% end %>
 

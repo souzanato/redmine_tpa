@@ -5,8 +5,11 @@ pt-BR:
   tag_for_pa: "TPA"
   project_module_tag_for_pa: "Marcações para Avaliações"
   appraisal_template_general_info: "Informações Gerais"
+  appraisal_general_info: "Informações Gerais"
   appraisal_questions_info: "Critérios da Avaliação"
   appraisal_validity: "Vigência"
+  appraisal_start_date: "Inicio"
+  appraisal_end_date: "Término"
 
   # Permissions
   permission_read_appraisals: "Ver Avaliações"
@@ -41,6 +44,7 @@ pt-BR:
   remove_appraisal_question_option: "Remover opção"
 
   # labels
+  no_data: "Sem registro"
   appraisal_name: "Nome"
   appraisal_description: "Descrição"
   appraisal_question_content: "Critério"

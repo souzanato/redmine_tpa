@@ -1,4 +1,6 @@
 gem 'active_link_to'
+gem 'will_paginate'
+gem 'select2-rails'
 
 group :development do
 	gem "better_errors", '2.1.1'
