@@ -27,6 +27,7 @@ pt-BR:
   duplicate_appraisal_questions: "A pergunta \"%{question}\" parece estar duplicada."
   duplicate_appraisal_question_options: "A pergunta \"%{question}\" parece estar com a opção \"%{option}\" duplicada."
   appraisal_end_dat_must_be_after_start_date: "Data final menor que data inicial"
+  insert_at_least_one_appraisal_appraisee: "Entre com pelo menos um avaliado"
 
   # Notice Messages
   appraisal_successfully_created: "Avaliação criada com sucesso"
@@ -42,6 +43,7 @@ pt-BR:
   add_appraisal_question_option: "Adicionar Opção"
   remove_appraisal_question: "Remover critério"
   remove_appraisal_question_option: "Remover opção"
+  create_appraisal_template: "Criar modelo de avaliação"
 
   # labels
   no_data: "Sem registro"
@@ -52,7 +54,7 @@ pt-BR:
   appraisal_start_date: "Data inicial"
   appraisal_end_date: "Data final"
   appraisal_template: "Modelo"
-  appraisal_participants: "Participantes"
+  appraisal_appraisees: "Participantes"
 
   # Helpers
   helpers:

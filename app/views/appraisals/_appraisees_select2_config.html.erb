@@ -1,26 +1,25 @@
 <script>
-		function participantFormatResult(participant) {
-		    var markup = "<table class='participant-result'><tr>";
-		    markup += "<td class='participant-info'><div class='participant-title'>" + participant.participant_info + "</div>";
+		function appraiseeFormatResult(appraisee) {
+		    var markup = "<table class='appraisee-result'><tr>";
+		    markup += "<td class='appraisee-info'><div class='appraisee-title'>" + appraisee.appraisee_info + "</div>";
 		    markup += "</td></tr></table>"
 		    return markup;
 		}
-		function participantFormatSelection(participant) {
-		    return (participant.participant_info);
+		function appraiseeFormatSelection(appraisee) {
+		    return (appraisee.appraisee_info);
 		}	
 </script>
 
 <script>
 		$(document).ready(function(){
-			$("#appraisal_user_ids_").select2({
-				placeholder: "<%=t('appraisal_participants')%>",
+			$("#appraisal_appraisee_ids_").select2({
+				placeholder: "<%=t('appraisal_appraisees')%>",
 				multiple: true,
 				ajax: {
-					url: '/appraisal_participants.json',
+					url: '/appraisal_appraisees.json',
 					dataType: 'json',
 					data: function (term, page) {
 						return {
-							select2_on: true,
 							q: term,
 							page_limit: 10,
 							page: page
@@ -28,11 +27,11 @@
 					},
 					results: function (data, page) {
 					    var more = (page * 10) < data.total; 
-					    return {results: data.participants, more: more};
+					    return {results: data.appraisees, more: more};
 					}
 				},
-				formatResult: participantFormatResult,
-				formatSelection: participantFormatSelection,
+				formatResult: appraiseeFormatResult,
+				formatSelection: appraiseeFormatSelection,
 			    dropdownCssClass: "bigdrop", 
 				formatSearching: function () { return "Buscando..."; },
 				formatNoMatches: function () { return "Nenhum resultado encontrado."; },			

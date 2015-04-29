@@ -11,9 +11,9 @@
   <dt><strong><%= t('appraisal_end_date') %>:</strong></dt>
   <dd><%= format_date @appraisal.end_date %></dd>
 
-  <dt><strong><%= t('appraisal_participants') %>:</strong></dt>
+  <dt><strong><%= t('appraisal_appraisees') %>:</strong></dt>
   <dd class="appraisal-lists">
-    <% @appraisal.users.each do |u| %>
+    <% @appraisal.appraisees.each do |u| %>
       <i class="fa fa-angle-double-right"></i> <%= u.login %> - <%= u.name %>
     <% end %>
   </dd>

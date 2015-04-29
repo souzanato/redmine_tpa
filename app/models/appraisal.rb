@@ -5,13 +5,13 @@ class Appraisal < ActiveRecord::Base
   validates_presence_of :start_date, unless: lambda { |a| a.template }
   validates_presence_of :appraisal_id, unless: lambda { |a| a.template }
   validates_uniqueness_of :name, allow_nil: true
-  attr_accessible :name, :description, :start_date, :end_date, :template, :appraisal_questions_attributes, :appraisal_template_id, :user_ids, :appraisal_id
+  attr_accessible :name, :description, :start_date, :end_date, :template, :appraisal_questions_attributes, :appraisal_template_id, :appraisee_ids, :appraisal_id
   
   has_many :appraisal_questions, dependent: :destroy
   accepts_nested_attributes_for :appraisal_questions, allow_destroy: true
 
-  has_many :users, through: :appraisal_participants
-  has_many :appraisal_participants, dependent: :destroy
+  has_many :appraisees, through: :appraisal_appraisees, source: :user
+  has_many :appraisal_appraisees, dependent: :destroy
 
   belongs_to :appraisal
 
@@ -28,6 +28,11 @@ class Appraisal < ActiveRecord::Base
   def at_least_one_question
   	errors.add(:appraisal_questions, I18n.t('insert_at_least_one_appraisal_question')) unless self.appraisal_questions.any?
   end
+
+  # validate :at_least_one_appraisal_appraisee
+  # def at_least_one_appraisal_appraisee
+  #   errors.add(:appraisee_ids, I18n.t('insert_at_least_one_appraisal_appraisee')) unless self.appraisees.any?
+  # end
 
   # https://rails.lighthouseapp.com/projects/8994/tickets/2160-nested_attributes-validates_uniqueness_of-fails#ticket-2160-11
   validate :validate_unique_appraisal_questions

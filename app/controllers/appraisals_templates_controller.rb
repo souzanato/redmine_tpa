@@ -7,6 +7,9 @@
     end
 
     def show
+      if params[:ajax_show]
+        render partial: 'show'        
+      end
     end
 
     def new    

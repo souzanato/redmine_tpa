@@ -1,49 +1,55 @@
-<%= form_for @appraisal, :html => { :class => "form-horizontal appraisal" }, validate: true do |f| %>
-<%=@appraisal.errors.inspect%>
-  <legend><%= t('appraisal_general_info') %></legend>
-  <div class="form-group">
-    <%= f.label t('appraisal_template'), :class => 'col-sm-2 control-label' %>
-    <div class="col-sm-10">
-      <%= f.collection_select :appraisal_id, Appraisal.where(template: true), :id, :first_60_name_words, {prompt: true}, class: 'form-control' %>
-      <span class="span-danger"><%= display_errors(f.object, :appraisal_template_id) %></span> 
+<% if Appraisal.where(template: true).any? %>
+  <%= form_for @appraisal, :html => { :class => "form-horizontal appraisal" }, validate: true do |f| %>
+    <legend><%= t('appraisal_general_info') %></legend>
+    <div class="form-group">
+      <%= f.label t('appraisal_template'), :class => 'col-sm-2 control-label' %>
+      <div class="col-sm-10">
+        <%= f.collection_select :appraisal_id, Appraisal.where(template: true), :id, :first_60_name_words, {prompt: true}, class: 'form-control' %>
+        <span class="span-danger"><%= display_errors(f.object, :appraisal_template_id) %></span> 
+
+        <div id="appraisal-template-info"></div>
+
+      </div>
     </div>
-  </div>
 
-  <div class="form-group">
-    <%= f.label t('appraisal_participants'), :class => 'col-sm-2 control-label' %>
-    <div class="col-sm-10">
-      <%= hidden_field_tag 'appraisal[user_ids][]', nil, style: 'width: 100%;' %>
-      <%= render partial: 'participants_select2_config', locals: {f: f} %>
-      <span class="span-danger"><%= display_errors(f.object, :user_ids) %></span> 
+    <div class="form-group">
+      <%= f.label t('appraisal_appraisees'), :class => 'col-sm-2 control-label' %>
+      <div class="col-sm-10">
+        <%= hidden_field_tag 'appraisal[appraisee_ids][]', nil, style: 'width: 100%;' %>
+        <%= render partial: 'appraisees_select2_config', locals: {f: f} %>
+        <span class="span-danger"><%= display_errors(f.object, :appraisee_ids) %></span> 
+      </div>
+      
     </div>
-    
-  </div>
 
-  <legend><%= t('appraisal_validity') %></legend>
-  <div class="form-group">
-    <%= f.label t('appraisal_start_date'), :class => 'col-sm-2 control-label' %>
-    <div class="col-sm-4">
-      <%= f.text_field :start_date, :class => 'form-control' %>
-      <span class="span-danger"><%= display_errors(f.object, :start_date) %></span> 
+    <legend><%= t('appraisal_validity') %></legend>
+    <div class="form-group">
+      <%= f.label t('appraisal_start_date'), :class => 'col-sm-2 control-label' %>
+      <div class="col-sm-4">
+        <%= f.text_field :start_date, :class => 'form-control' %>
+        <span class="span-danger"><%= display_errors(f.object, :start_date) %></span> 
+      </div>
+      <div class="col-sm-1">
+        <%= calendar_for('appraisal_start_date') %>
+      </div>    
     </div>
-    <div class="col-sm-1">
-      <%= calendar_for('appraisal_start_date') %>
-    </div>    
-  </div>
 
-  <div class="form-group">
-    <%= f.label t('appraisal_end_date'), :class => 'col-sm-2 control-label' %>
-    <div class="col-sm-4">
-      <%= f.text_field :end_date, :class => 'form-control datepicker' %>
-      <span class="span-danger"><%= display_errors(f.object, :end_date) %></span> 
-    </div>    
-  </div>
+    <div class="form-group">
+      <%= f.label t('appraisal_end_date'), :class => 'col-sm-2 control-label' %>
+      <div class="col-sm-4">
+        <%= f.text_field :end_date, :class => 'form-control datepicker' %>
+        <span class="span-danger"><%= display_errors(f.object, :end_date) %></span> 
+      </div>    
+    </div>
 
 
-  <div class="form-actions">
-  	<%= f.submit nil, :class => 'btn btn-primary' %>
-  	<%= link_to t("button_cancel"),
-            appraisals_path, :class => 'btn btn-default' %>
-  </div>
+    <div class="form-actions">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t("button_cancel"),
+              appraisals_path, :class => 'btn btn-default' %>
+    </div>
 
+  <% end %>  
+<% else %>
+  <div id='flash_warning' class='flash warning'><%=t('no_appraisals_templates_found')%>. <%=link_to t('create_appraisal_template'), new_appraisals_template_path %></div>
 <% end %>

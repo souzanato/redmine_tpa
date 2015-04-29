@@ -6,6 +6,7 @@ class CreateAppraisals < ActiveRecord::Migration
       t.date :start_date
       t.date :end_date
       t.boolean :template
+      t.belongs_to :appraisal, index: true
     end
   end
 end
