@@ -30,7 +30,7 @@ class Appraisal < ActiveRecord::Base
   	errors.add(:appraisal_questions, I18n.t('insert_at_least_one_appraisal_question')) unless self.appraisal_questions.any?
   end
 
-  validate :at_least_one_appraisal_appraisee
+  validate :at_least_one_appraisal_appraisee, unless: lambda {|a| a.template}
   def at_least_one_appraisal_appraisee
     errors.add(:appraisee_ids, I18n.t('insert_at_least_one_appraisal_appraisee')) unless self.appraisees.any?
   end

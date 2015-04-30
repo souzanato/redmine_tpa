@@ -1,4 +1,4 @@
-Tag for PA Plugin - Helps appraisers and appraisees in Performance Appraisals.
+Redmine TPA Plugin - Helps appraisers and appraisees in Performance Appraisals.
 Copyright (C) 2015 -  Renato de Souza
 
 This program is free software: you can redistribute it and/or modify
