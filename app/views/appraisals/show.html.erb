@@ -11,6 +11,13 @@
   <dt><strong><%= t('appraisal_end_date') %>:</strong></dt>
   <dd><%= format_date @appraisal.end_date %></dd>
 
+  <dt><strong><%= t('appraisal_appraisers') %>:</strong></dt>
+  <dd class="appraisal-lists">
+    <% @appraisal.appraisers.each do |u| %>
+      <i class="fa fa-angle-double-right"></i> <%= u.login %> - <%= u.name %>
+    <% end %>
+  </dd>
+
   <dt><strong><%= t('appraisal_appraisees') %>:</strong></dt>
   <dd class="appraisal-lists">
     <% @appraisal.appraisees.each do |u| %>
@@ -30,8 +37,5 @@
               :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
               :class => 'btn btn-danger' %>
 </div>
-
-
-
 
 <%= render partial: 'layout/append', locals: {bomb_text: t('helpers.links.reading'), bomb_icon: :eye} %>

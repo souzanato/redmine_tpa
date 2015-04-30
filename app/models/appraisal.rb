@@ -4,9 +4,9 @@ class Appraisal < ActiveRecord::Base
   validates_inclusion_of :template, :in => [true, false]
   validates_presence_of :start_date, unless: lambda { |a| a.template }
   validates_presence_of :appraisal_id, unless: lambda { |a| a.template }
-  validates_uniqueness_of :appraisal_id#, if: :any_in_progress?, message: I18n.t('appraisal_already_in_progress')
+  validates_uniqueness_of :appraisal_id, allow_nil: true#, if: :any_in_progress?, message: I18n.t('appraisal_already_in_progress')
   validates_uniqueness_of :name, allow_nil: true
-  attr_accessible :name, :description, :start_date, :end_date, :template, :appraisal_questions_attributes, :appraisal_template_id, :appraisee_ids, :appraisal_id
+  attr_accessible :name, :description, :start_date, :end_date, :template, :appraisal_questions_attributes, :appraisal_template_id, :appraisee_ids, :appraisal_id, :appraiser_ids
   
   has_many :appraisal_questions, dependent: :destroy
   accepts_nested_attributes_for :appraisal_questions, allow_destroy: true
@@ -14,7 +14,11 @@ class Appraisal < ActiveRecord::Base
   has_many :appraisees, through: :appraisal_appraisees, source: :user
   has_many :appraisal_appraisees, dependent: :destroy
 
+  has_many :appraisers, through: :appraisal_appraisers, source: :user
+  has_many :appraisal_appraisers, dependent: :destroy
+
   belongs_to :appraisal
+  has_many :appraisals, dependent: :restrict_with_exception
 
   def first_60_name_words
     self.name.length > 60 ? "#{self.name[0..60]}..." : self.name

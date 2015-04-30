@@ -3,20 +3,25 @@
 pt-BR:
   # Titles
   redmine_tpa: "TPA"
-  project_module_redmine_tpa: "Marcações para Avaliações"
+  project_module_redmine_tpa: "TPA"
   appraisal_template_general_info: "Informações Gerais"
   appraisal_general_info: "Informações Gerais"
   appraisal_questions_info: "Critérios da Avaliação"
   appraisal_validity: "Vigência"
   appraisal_start_date: "Inicio"
   appraisal_end_date: "Término"
-  welcome_to_redmine_tpa: "Bem-vindo ao Redmine TPA (Tag for Performance Appraisal)"
+  welcome_to_redmine_tpa: "Bem-vindo ao Redmine TPA (Tag for Performance Appraisal)!"
 
   # Permissions
   permission_read_appraisals: "Ver Avaliações"
   permission_update_appraisals: "Atualizar Avaliações"
   permission_destroy_appraisals: "Destruir Avaliações"
   permission_create_appraisals: "Criar Avaliações"
+
+  permission_read_appraisal_templates: "Ver Modelos de Avaliações"
+  permission_update_appraisal_templates: "Atualizar Modelos de Avaliações"
+  permission_destroy_appraisal_templates: "Destruir Modelos de Avaliações"
+  permission_create_appraisal_templates: "Criar Modelos de Avaliações"
 
   # Error Messages
   restrict_dependency_on_destroy: "Este registro possui dependências que anulam sua destruição."
@@ -57,7 +62,8 @@ pt-BR:
   appraisal_start_date: "Data inicial"
   appraisal_end_date: "Data final"
   appraisal_template: "Modelo"
-  appraisal_appraisees: "Participantes"
+  appraisal_appraisees: "Participante(s)"
+  appraisal_appraisers: "Avaliador(es)"
 
   # Helpers
   helpers:

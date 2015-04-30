@@ -2,22 +2,40 @@ $(document).ready(function(){
 	$('body').on('change', '#appraisal_appraisal_id', function(){
 		if($(this).val() != ''){
 			jQuery.ajax({
-	      url: '/appraisals_templates/' + $(this).val(),
-	      timeout: 10000,
-	      type: 'GET',
-	      data: {
-	      	ajax_show: true
-	      },
-	      dataType: 'html',
-	      success: function(data) {
-	      	$('#appraisal-template-info').html(data);
-	      },
-	      error: function(x, t, m) {
-	      	alert('Error');
-	      }
-	    });
+		      url: '/appraisals_templates/' + $(this).val(),
+		      timeout: 10000,
+		      type: 'GET',
+		      data: {
+		      	ajax_show: true
+		      },
+		      dataType: 'html',
+		      success: function(data) {
+		      	$('#appraisal-template-info').html(data);
+		      },
+		      error: function(x, t, m) {
+		      	alert('Error');
+		      }
+		    });
 		} else {
 			$('#appraisal-template-info').html('');
 		}
 	});
+	
+	if ($.trim($('#appraisal_appraisal_id').val()) != '') {
+		jQuery.ajax({
+	    url: '/appraisals_templates/' + $('#appraisal_appraisal_id').val(),
+	    timeout: 10000,
+	    type: 'GET',
+	    data: {
+	    	ajax_show: true
+	    },
+	    dataType: 'html',
+	    success: function(data) {
+	    	$('#appraisal-template-info').html(data);
+	    },
+	    error: function(x, t, m) {
+	    	alert('Error');
+	    }
+	  });
+	};
 });

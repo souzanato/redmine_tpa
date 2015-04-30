@@ -2,7 +2,6 @@ require 'will_paginate/array'
 
 class AppraisalAppraiseesController < ApplicationController
     unloadable
-
     def index
        	appraisees_hash = User.where("login <> '' and login is not null").order('login').to_a.map(&:serializable_hash)        
         appraisees_hash.each{|h| h.merge!(appraisee_info: "#{h["login"]} - #{h["firstname"]} #{h["lastname"]}")}

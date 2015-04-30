@@ -6,3 +6,4 @@ resources :appraisals_templates
 
 get 'tpa' => 'redmine_tpa#index'
 get 'appraisal_appraisees' => 'appraisal_appraisees#index'
+get 'appraisal_appraisers' => 'appraisal_appraisers#index'

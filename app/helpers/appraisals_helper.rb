@@ -24,5 +24,9 @@ module AppraisalsHelper
 		appraisees.map {|a| "{id: #{a.id}, appraisee_info: \"#{a.login} - #{a.name}\"}"}.join(',')
 	end
 
+	def appraiser_hash(appraisers)
+		appraisers.map {|a| "{id: #{a.id}, appraiser_info: \"#{a.login} - #{a.name}\"}"}.join(',')
+	end
+
 
 end

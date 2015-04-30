@@ -1,7 +1,7 @@
   class AppraisalsTemplatesController < ApplicationController
     unloadable
     before_action :set_appraisal, only: [:show, :edit, :update, :destroy]
-    
+
     def index
       @appraisals = Appraisal.where(template: true).order(:name)
     end
