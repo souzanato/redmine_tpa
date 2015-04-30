@@ -29,10 +29,10 @@ class Appraisal < ActiveRecord::Base
   	errors.add(:appraisal_questions, I18n.t('insert_at_least_one_appraisal_question')) unless self.appraisal_questions.any?
   end
 
-  # validate :at_least_one_appraisal_appraisee
-  # def at_least_one_appraisal_appraisee
-  #   errors.add(:appraisee_ids, I18n.t('insert_at_least_one_appraisal_appraisee')) unless self.appraisees.any?
-  # end
+  validate :at_least_one_appraisal_appraisee
+  def at_least_one_appraisal_appraisee
+    errors.add(:appraisee_ids, I18n.t('insert_at_least_one_appraisal_appraisee')) unless self.appraisees.any?
+  end
 
   # https://rails.lighthouseapp.com/projects/8994/tickets/2160-nested_attributes-validates_uniqueness_of-fails#ticket-2160-11
   validate :validate_unique_appraisal_questions

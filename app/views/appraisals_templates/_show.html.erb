@@ -1,19 +1,21 @@
-<%- model_class = Appraisal -%>
+<div id="appraisal-template-info-content">
+  <%- model_class = Appraisal -%>
 
-<dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
-  <dd><%= @appraisal.name %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
-  <dd><%= @appraisal.description %></dd>
-  <dt><strong><%= AppraisalQuestion.model_name.human.titleize.pluralize %>:</strong></dt>
+  <dl class="dl-horizontal">
+    <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
+    <dd><%= @appraisal.name %></dd>
+    <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
+    <dd><%= @appraisal.description %></dd>
+    <dt><strong><%= AppraisalQuestion.model_name.human.titleize.pluralize %>:</strong></dt>
 
-  <% @appraisal.appraisal_questions.each do |aq| %>
-  <dt class="appraisal-lists"><i class="fa fa-angle-double-right"></i> <%= aq.content %>:</dt>
-    <dd class="appraisal-lists">
-      <% aq.appraisal_question_options.each do |qo| %>
-        <i class="fa fa-angle-right"></i> <%= qo.content %><br/>
-      <% end %>
-    </dd>
-  <% end %>
+    <% @appraisal.appraisal_questions.each do |aq| %>
+    <dt class="appraisal-lists"><i class="fa fa-angle-double-right"></i> <%= aq.content %>:</dt>
+      <dd class="appraisal-lists">
+        <% aq.appraisal_question_options.each do |qo| %>
+          <i class="fa fa-angle-right"></i> <%= qo.content %><br/>
+        <% end %>
+      </dd>
+    <% end %>
 
-</dl>
+  </dl>
+</div>

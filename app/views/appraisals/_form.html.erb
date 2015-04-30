@@ -5,7 +5,7 @@
       <%= f.label t('appraisal_template'), :class => 'col-sm-2 control-label' %>
       <div class="col-sm-10">
         <%= f.collection_select :appraisal_id, Appraisal.where(template: true), :id, :first_60_name_words, {prompt: true}, class: 'form-control' %>
-        <span class="span-danger"><%= display_errors(f.object, :appraisal_template_id) %></span> 
+        <span class="span-danger"><%= display_errors(f.object, :appraisal_id) %></span> 
 
         <div id="appraisal-template-info"></div>
 
