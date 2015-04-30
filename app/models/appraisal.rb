@@ -4,6 +4,7 @@ class Appraisal < ActiveRecord::Base
   validates_inclusion_of :template, :in => [true, false]
   validates_presence_of :start_date, unless: lambda { |a| a.template }
   validates_presence_of :appraisal_id, unless: lambda { |a| a.template }
+  validates_uniqueness_of :appraisal_id#, if: :any_in_progress?, message: I18n.t('appraisal_already_in_progress')
   validates_uniqueness_of :name, allow_nil: true
   attr_accessible :name, :description, :start_date, :end_date, :template, :appraisal_questions_attributes, :appraisal_template_id, :appraisee_ids, :appraisal_id
   
@@ -32,6 +33,27 @@ class Appraisal < ActiveRecord::Base
   validate :at_least_one_appraisal_appraisee
   def at_least_one_appraisal_appraisee
     errors.add(:appraisee_ids, I18n.t('insert_at_least_one_appraisal_appraisee')) unless self.appraisees.any?
+  end
+
+  def in_progress?
+    return true if self.end_date.nil?
+    Date.today <= self.end_date
+  end
+
+  def any_in_progress?
+    Appraisal
+    .where(appraisal_id: self.appraisal_id)
+    .where('? <= appraisals.end_date or appraisals.end_date is null', Date.today
+    .strftime('%Y-%m-%d'))
+    .any?
+  end
+
+  def self.any_in_progress(appraisal_id)
+    Appraisal
+    .where(appraisal_id: appraisal_id)
+    .where('? <= appraisals.end_date or appraisals.end_date is null', Date.today
+    .strftime('%Y-%m-%d'))
+    .any?
   end
 
   # https://rails.lighthouseapp.com/projects/8994/tickets/2160-nested_attributes-validates_uniqueness_of-fails#ticket-2160-11

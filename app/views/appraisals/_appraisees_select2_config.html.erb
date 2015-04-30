@@ -38,6 +38,9 @@
 				escapeMarkup: function (m) { return m; }
 			});
 
+			<% if f.object.appraisees.any? %>
+				$('#appraisal_appraisee_ids_').select2('data', [<%= raw(appraisee_hash(f.object.appraisees))%>]);
+			<% end %>
 
 
 		});

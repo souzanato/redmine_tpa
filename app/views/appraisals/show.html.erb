@@ -3,7 +3,7 @@
 <%- model_class = Appraisal -%>
 <dl class="dl-horizontal">
   <dt><strong><%= t('appraisal_template')%>:</strong></dt>
-  <dd><%= link_to @appraisal.appraisal.name, appraisals_template_path(@appraisal.appraisal) %></dd>
+  <%= render partial: 'appraisals_templates/show', locals: {:appraisal => @appraisal.appraisal} %>
 
   <dt><strong><%= t('appraisal_start_date') %>:</strong></dt>
   <dd><%= format_date @appraisal.start_date %></dd>

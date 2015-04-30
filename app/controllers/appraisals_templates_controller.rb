@@ -8,7 +8,7 @@
 
     def show
       if params[:ajax_show]
-        render partial: 'show'        
+        render partial: 'show', locals: {appraisal: @appraisal}        
       end
     end
 

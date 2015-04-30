@@ -28,6 +28,7 @@ pt-BR:
   duplicate_appraisal_question_options: "A pergunta \"%{question}\" parece estar com a opção \"%{option}\" duplicada."
   appraisal_end_dat_must_be_after_start_date: "Data final menor que data inicial"
   insert_at_least_one_appraisal_appraisee: "Entre com pelo menos um avaliado"
+  appraisal_already_in_progress: "esta avaliação já está em andamento"
 
   # Notice Messages
   appraisal_successfully_created: "Avaliação criada com sucesso"

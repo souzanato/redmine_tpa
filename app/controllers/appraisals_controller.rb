@@ -32,6 +32,15 @@
     end
 
     def update
+      respond_to do |format|
+        if @appraisal.update(appraisal_params)
+          format.html { redirect_to appraisal_path(@appraisal), notice: t('appraisal_successfully_updated') }
+          format.json { render :show, status: :ok, location: @appraisal }
+        else
+          format.html { render :edit }
+          format.json { render json: @appraisal.errors, status: :unprocessable_entity }
+        end
+      end
     end
 
     def destroy
