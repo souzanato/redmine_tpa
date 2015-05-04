@@ -1,3 +1,17 @@
+.tpa-table tr:hover,
+.tpa-table th:hover {
+    cursor: pointer;
+    background-color:#555;
+    color: white;
+}
+
+.tpa-table th {
+    /*background-color: #dedebd;*/
+    padding: 3px;
+    min-width: 100%;
+    /*border: 1px solid #dedebd;*/
+}
+
 #tag-for-pa {
     display: none;
     margin-top: 10px;

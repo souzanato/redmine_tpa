@@ -1,5 +1,23 @@
-<%= stylesheet_link_tag 'select2', :plugin => 'redmine_tpa' %>
-<%= javascript_include_tag 'select2.min', :plugin => 'redmine_tpa' %>
-<%= javascript_include_tag 'redmine_tpa', :plugin => 'redmine_tpa' %>
+<%= stylesheet_link_tag 'redmine_tpa', :plugin => 'redmine_tpa' %>
+<%= stylesheet_link_tag 'font-awesome.min', :plugin => 'redmine_tpa' %>
 
-<%= select_tag 'appraisal_id_select', options_from_collection_for_select(@appraisal.appraisal.appraisal_questions.map {|aq| aq.appraisal_question_options}.flatten, :id, :content), prompt: t('helpers.select.prompt'), class: 'select2-local', style: 'width: 100%;' %>
+<% @appraisal.appraisal.appraisal_questions.each do |aq| %>
+	<dt class="appraisal-lists"><i class="fa fa-angle-double-right"></i> <%= aq.content %>:</dt>
+  <dd class="appraisal-lists">
+    <% aq.appraisal_question_options.each do |qo| %>
+    	<div id="appraisal-<%=@appraisal.id%>-appraisal-question-option-<%=qo.id%>-tag-form">
+	    	<%= form_for TpaTag.new, remote: true do |f| %>
+	    		<%= f.hidden_field :appraisal_question_option_id, value: qo.id %>
+	    		<%= f.hidden_field :appraisal_id, value: @appraisal.id %>
+	    		<%= f.hidden_field :user_id, value: User.current.id %>
+	    		<%= button_tag type: 'submit', 
+	    			style: TpaTag.where(user_id: User.current.id, appraisal_question_option_id: qo.id, appraisal_id: @appraisal.id).any? ? "color: #337ab7" : "color: #ccc",
+	    			id: "appraisal-#{@appraisal.id}-appraisal-question-option-#{qo.id}-tag-link" do %>
+	  					<%=  "<i class='fa fa-tag'></i>".html_safe %>
+				<% end %>
+	    	<% end %>
+	   		<%= qo.content %><br/>
+    	</div>
+    <% end %>
+  </dd>
+<% end %>

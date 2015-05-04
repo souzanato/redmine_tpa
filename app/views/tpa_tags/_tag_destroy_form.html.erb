@@ -1,0 +1,5 @@
+<%= form_for @tpa_tag, method: :delete, remote: true do |f| %>
+    <%= button_tag type: 'submit', style: "color: #337ab7" do %>
+        <%=  "<i class='fa fa-tag'></i>".html_safe %>
+    <% end %>
+<% end %> <%= @tpa_tag.appraisal_question_option.content %><br/>

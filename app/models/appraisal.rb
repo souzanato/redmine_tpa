@@ -21,6 +21,8 @@ class Appraisal < ActiveRecord::Base
   belongs_to :appraisal
   has_many :appraisals, dependent: :restrict_with_exception
 
+  has_many :tpa_tags, dependent: :restrict_with_exception
+
   def template_name_and_appraisers
     unless self.template
       "#{self.appraisal.name} - #{self.appraisers.map{|a| a.name}.join(',')}"
