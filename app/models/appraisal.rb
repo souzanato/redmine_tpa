@@ -1,5 +1,6 @@
 class Appraisal < ActiveRecord::Base
   unloadable
+  has_paper_trail
   validates_presence_of :name, if: lambda {|a| a.template}
   validates_inclusion_of :template, :in => [true, false]
   validates_presence_of :start_date, unless: lambda { |a| a.template }
@@ -20,6 +21,12 @@ class Appraisal < ActiveRecord::Base
   belongs_to :appraisal
   has_many :appraisals, dependent: :restrict_with_exception
 
+  def template_name_and_appraisers
+    unless self.template
+      "#{self.appraisal.name} - #{self.appraisers.map{|a| a.name}.join(',')}"
+    end
+  end
+
   def first_60_name_words
     self.name.length > 60 ? "#{self.name[0..60]}..." : self.name
   end
@@ -32,6 +39,11 @@ class Appraisal < ActiveRecord::Base
   validate :at_least_one_question, if: lambda {|a| a.template}
   def at_least_one_question
   	errors.add(:appraisal_questions, I18n.t('insert_at_least_one_appraisal_question')) unless self.appraisal_questions.any?
+  end
+
+  validate :at_least_one_appraisal_appraiser, unless: lambda {|a| a.template}
+  def at_least_one_appraisal_appraiser
+    errors.add(:appraiser_ids, I18n.t('insert_at_least_one_appraisal_appraiser')) unless self.appraisers.any?
   end
 
   validate :at_least_one_appraisal_appraisee, unless: lambda {|a| a.template}

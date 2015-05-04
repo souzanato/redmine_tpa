@@ -7,6 +7,9 @@
     end
 
     def show
+      if params[:questions_and_options]
+        render partial: 'questions_and_options'      
+      end
     end
 
     def new    

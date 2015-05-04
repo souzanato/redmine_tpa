@@ -1,5 +1,6 @@
 class AppraisalQuestion < ActiveRecord::Base
   unloadable
+  has_paper_trail
   belongs_to :appraisal
   attr_accessible :content, :appraisal_question_options_attributes
   validates_presence_of :content

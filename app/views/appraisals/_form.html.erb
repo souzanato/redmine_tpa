@@ -15,7 +15,7 @@
       <div class="col-sm-10">
         <%= hidden_field_tag 'appraisal[appraiser_ids][]', nil, style: 'width: 100%;' %>
         <%= render partial: 'appraiser_select2_config', locals: {f: f} %>
-        <span class="span-danger"><%= display_errors(f.object, :appraiser_id) %></span> 
+        <span class="span-danger"><%= display_errors(f.object, :appraiser_ids) %></span> 
       </div>
       
     </div>

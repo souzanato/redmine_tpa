@@ -1,3 +1,13 @@
+#tag-for-pa {
+    display: none;
+    margin-top: 10px;
+}
+
+#questions-and-options {
+    margin-top: 10px;
+}
+
+
 .select2-container-multi .select2-choices {
     border: 1px solid #ccc;
     border-radius: 4px;

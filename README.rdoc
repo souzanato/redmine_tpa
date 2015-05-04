@@ -26,5 +26,6 @@ Redmine Tag for PA Plugin is open source and released under the terms of the {GN
 Check {GNU GPL v3 quick guide}[http://www.gnu.org/licenses/quick-guide-gplv3.html] for more information.
 
 == Credits
+* paper_trail[https://github.com/airblade/paper_trail]
 * Andrew France Workaround for validates_uniqueness_of nested attributes[https://rails.lighthouseapp.com/projects/8994/tickets/2160-nested_attributes-validates_uniqueness_of-fails#ticket-2160-11]
 * Ryan Bates nested forms episodes[http://railscasts.com/episodes/196-nested-model-form-revised]

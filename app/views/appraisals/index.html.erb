@@ -5,12 +5,14 @@
 	<table class="table table-hover">
 		<thead>
 			<th><%= t('appraisal_template')%>:</th>
+			<th><%= t('appraisal_appraisers')%>:</th>
 			<th><%= t('appraisal_start_date')%>:</th>
 		</thead>
 		<tbody>
 			<% @appraisals.each do |a| %>
 			<tr>
 				<td><%= link_to a.appraisal.first_60_name_words, appraisal_path(a) %></td>
+				<td><%= a.appraisers.map{|a| "#{a.firstname} #{a.lastname}"}.join(", ") %></td>
 				<td><%= format_date(a.start_date) %></td>
 			</tr>
 			<% end %>

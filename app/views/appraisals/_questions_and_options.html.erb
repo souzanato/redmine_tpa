@@ -1,0 +1,5 @@
+<%= stylesheet_link_tag 'select2', :plugin => 'redmine_tpa' %>
+<%= javascript_include_tag 'select2.min', :plugin => 'redmine_tpa' %>
+<%= javascript_include_tag 'redmine_tpa', :plugin => 'redmine_tpa' %>
+
+<%= select_tag 'appraisal_id_select', options_from_collection_for_select(@appraisal.appraisal.appraisal_questions.map {|aq| aq.appraisal_question_options}.flatten, :id, :content), prompt: t('helpers.select.prompt'), class: 'select2-local', style: 'width: 100%;' %>
