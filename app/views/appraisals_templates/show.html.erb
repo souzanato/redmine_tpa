@@ -2,9 +2,11 @@
 
 <%- model_class = Appraisal -%>
 <dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
+  <dt><strong><%= t('appraisal_template_name') %>:</strong></dt>
   <dd><%= @appraisal.name %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
+  <dt><strong><%= t('appraisal_template_author') %>:</strong></dt>
+  <dd><%= @appraisal.author.name %></dd>
+  <dt><strong><%= t('appraisal_template_description') %>:</strong></dt>
   <dd><%= @appraisal.description %></dd>
   <dt><strong><%= AppraisalQuestion.model_name.human.titleize.pluralize %>:</strong></dt>
 
@@ -22,13 +24,15 @@
 <div class="form-actions">
 <%= link_to t('.back', :default => t("helpers.links.back")),
               appraisals_templates_path, :class => 'btn btn-default'  %>
-<%= link_to t('.edit', :default => t("helpers.links.edit")),
-              edit_appraisals_template_path(@appraisal), :class => 'btn btn-default' %>
-<%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-              appraisals_template_path(@appraisal),
-              :method => 'delete',
-              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-              :class => 'btn btn-danger' %>
+<% if @appraisal.author == User.current %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                edit_appraisals_template_path(@appraisal), :class => 'btn btn-default' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                appraisals_template_path(@appraisal),
+                :method => 'delete',
+                :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                :class => 'btn btn-danger' %>
+<% end %>
 </div>
 
 <%= render partial: 'layout/append', locals: {bomb_text: t('helpers.links.reading'), bomb_icon: :eye} %>

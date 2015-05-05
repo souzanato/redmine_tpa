@@ -4,12 +4,14 @@
 <% if @appraisals.any? %>
 	<table class="table table-hover">
 		<thead>
-			<th><%= model_class.human_attribute_name(:name) %>:</th>
+			<th><%= t('appraisal_template_name') %>:</th>
+			<th><%= t('appraisal_template_author') %>:</th>
 		</thead>
 		<tbody>
 			<% @appraisals.each do |a| %>
 			<tr>
 				<td><%= link_to a.name, appraisals_template_path(a) %></td>
+				<td><%= a.author.login %> - <%=a.author.name%></td>
 			</tr>
 			<% end %>
 		</tbody>

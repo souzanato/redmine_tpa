@@ -6,14 +6,18 @@ namespace :redmine do
   	namespace :tpa do
   		namespace :development do
 		  	task seed: :environment do
+
+		  	  begin
+				    STDOUT.puts "Entre com o login do Autor do modelo"
+    				input = STDIN.gets.strip.downcase
+  				end until (!input.blank? and User.where('login = ?', input).any?)
+
 				  puts('Criando modelo de avaliação...')
 					template = Appraisal.new(
 						template: true, 
 						name: 'AVALIAÇÃO DE DESEMPENHO INDIVIDUAL', 
 						description: 'Avaliação de desempenho individual para a manutenção da Gratificação Temporária do Sistema de Administração dos Recursos de Informação e Informática - GSISP, conforme dispõe o art. 290 da Lei nº 11.907, de 2 de fevereiro de 2009, e os arts. 10, 11 e 12 da Portaria MP nº 89, de 23 de abril de 2009.',
-						start_date: Date.today,
-						end_date: Date.today + 30.days,
-						appraisal_id: nil
+						author_id: User.find_by_login(input).id
 					)
 
 					puts('Criando avaliação...')

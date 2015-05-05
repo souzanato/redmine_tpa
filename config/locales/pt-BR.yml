@@ -29,7 +29,7 @@ pt-BR:
   remove_dependencies_and_update_the_form_to_enable_destroy: "Remova as dependencias (%{dependency}) e atualize o formulário para habilitar a remoção."
   no_appraisals_found: "Nenhuma avaliação encontrada"
   no_appraisals_templates_found: "Nenhum modelo de avaliação encontrado"
-  insert_at_least_one_appraisal_question: "Entre com pelo menos uma pergunta"
+  insert_at_least_one_appraisal_question: "Entre com pelo menos um critério"
   insert_at_least_one_appraisal_question_option: "Entre com pelo menos uma opção"
   duplicate_appraisal_questions: "A pergunta \"%{question}\" parece estar duplicada."
   duplicate_appraisal_question_options: "A pergunta \"%{question}\" parece estar com a opção \"%{option}\" duplicada."
@@ -64,9 +64,12 @@ pt-BR:
   appraisal_question_option_content: "Opção"
   appraisal_start_date: "Data inicial"
   appraisal_end_date: "Data final"
-  appraisal_template: "Modelo"
   appraisal_appraisees: "Participante(s)"
   appraisal_appraisers: "Avaliador(es)"
+  appraisal_template: "Modelo"
+  appraisal_template_name: "Nome"
+  appraisal_template_description: "Descrição"
+  appraisal_template_author: "Autor"
 
   # Helpers
   helpers:

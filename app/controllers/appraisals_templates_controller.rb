@@ -1,6 +1,7 @@
   class AppraisalsTemplatesController < ApplicationController
     unloadable
     before_action :set_appraisal, only: [:show, :edit, :update, :destroy]
+    before_action :authorize_manage, only: [:edit, :update, :destroy]
 
     def index
       @appraisals = Appraisal.where(template: true).order(:name)
@@ -18,6 +19,8 @@
 
     def create
       @appraisal = Appraisal.new(appraisal_params)
+      @appraisal.template = true
+      @appraisal.author_id = User.current.id
 
       respond_to do |format|
         if @appraisal.save
@@ -59,6 +62,10 @@
     end
 
     private
+    def authorize_manage
+      render_403 :message => t('notice_not_authorized') unless Appraisal.find(params[:id]).author == User.current
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_appraisal
       @appraisal = Appraisal.find(params[:id])

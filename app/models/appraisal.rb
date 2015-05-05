@@ -1,14 +1,13 @@
 class Appraisal < ActiveRecord::Base
   unloadable
   has_paper_trail
-  validates_presence_of :name, if: lambda {|a| a.template}
+  validates_presence_of :name, :author_id, if: lambda {|a| a.template}
   validates_inclusion_of :template, :in => [true, false]
   validates_presence_of :start_date, unless: lambda { |a| a.template }
   validates_presence_of :appraisal_id, unless: lambda { |a| a.template }
-  validates_uniqueness_of :appraisal_id, allow_nil: true#, if: :any_in_progress?, message: I18n.t('appraisal_already_in_progress')
   validates_uniqueness_of :name, allow_nil: true
-  attr_accessible :name, :description, :start_date, :end_date, :template, :appraisal_questions_attributes, :appraisal_template_id, :appraisee_ids, :appraisal_id, :appraiser_ids
-  
+  attr_accessible :name, :description, :start_date, :end_date, :template, :appraisal_questions_attributes, :appraisal_template_id, :appraisee_ids, :appraisal_id, :appraiser_ids, :author_id
+
   has_many :appraisal_questions, dependent: :destroy
   accepts_nested_attributes_for :appraisal_questions, allow_destroy: true
 
@@ -23,10 +22,20 @@ class Appraisal < ActiveRecord::Base
 
   has_many :tpa_tags, dependent: :restrict_with_exception
 
+  belongs_to :author, class_name: 'User', foreign_key: 'author_id'
+
+  def appraisee_ids=(val)
+    val.first.split(',').collect {|v| v.to_i}
+  end
+
   def template_name_and_appraisers
     unless self.template
       "#{self.appraisal.name} - #{self.appraisers.map{|a| a.name}.join(',')}"
     end
+  end
+
+  def author_and_first_60_name_words
+    "#{self.author.login} - #{self.author.name}: #{self.first_60_name_words}"
   end
 
   def first_60_name_words

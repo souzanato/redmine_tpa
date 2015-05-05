@@ -1,9 +1,15 @@
   class AppraisalsController < ApplicationController
     unloadable
-    before_action :set_appraisal, only: [:show, :edit, :update, :destroy]
+    before_action :set_appraisal, only: [:show, :edit, :update, :destroy, :authorize_appraisal, :authorize_manage]
+    before_action :authorize_manage, only: [:edit, :update, :destroy]
+    before_action :authorize_appraisal, only: [:show]
+
 
     def index
-      @appraisals = Appraisal.where(template: false)
+      @appraisals = Appraisal
+        .joins(:appraisees, :appraisers)
+        .where("template is false and (appraisal_appraisees.user_id in (?) or appraisal_appraisers.id in (?))",
+          User.current.id, User.current.id)
     end
 
     def show
@@ -59,6 +65,14 @@
     end
 
     private
+    def authorize_appraisal
+      render_403 :message => t('notice_not_authorized') unless @appraisal.appraisees.include?(User.current) or @appraisal.appraisers.include?(User.current)
+    end
+
+    def authorize_manage
+      render_403 :message => t('notice_not_authorized') unless @appraisal.appraisers.include?(User.current)
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_appraisal
       @appraisal = Appraisal.find(params[:id])

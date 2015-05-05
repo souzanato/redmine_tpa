@@ -8,6 +8,7 @@ class CreateAppraisals < ActiveRecord::Migration
       t.boolean :template
       t.belongs_to :appraisal, index: true
       t.integer :appraiser_id
+      t.integer :author_id
     end
   end
 end

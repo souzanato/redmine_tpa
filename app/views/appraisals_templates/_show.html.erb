@@ -2,9 +2,11 @@
   <%- model_class = Appraisal -%>
 
   <dl class="dl-horizontal">
-    <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
+    <dt><strong><%= t('appraisal_template_name') %>:</strong></dt>
     <dd><%= appraisal.name %></dd>
-    <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
+    <dt><strong><%= t('appraisal_template_author') %>:</strong></dt>
+    <dd><%= appraisal.author.name %></dd>
+    <dt><strong><%= t('appraisal_template_description') %>:</strong></dt>
     <dd><%= appraisal.description %></dd>
     <dt><strong><%= AppraisalQuestion.model_name.human.titleize.pluralize %>:</strong></dt>
 
