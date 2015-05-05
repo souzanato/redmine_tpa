@@ -14,14 +14,14 @@
   <dt><strong><%= t('appraisal_appraisers') %>:</strong></dt>
   <dd class="appraisal-lists">
     <% @appraisal.appraisers.each do |u| %>
-      <i class="fa fa-angle-double-right"></i> <%= u.login %> - <%= u.name %>
+      <i class="fa fa-angle-double-right"></i> <%= u.login %> - <%= u.name %><br/>
     <% end %>
   </dd>
 
   <dt><strong><%= t('appraisal_appraisees') %>:</strong></dt>
   <dd class="appraisal-lists">
     <% @appraisal.appraisees.each do |u| %>
-      <i class="fa fa-angle-double-right"></i> <%= u.login %> - <%= u.name %>
+      <i class="fa fa-angle-double-right"></i> <%= u.login %> - <%= u.name %><br/>
     <% end %>
   </dd>
 </dl>

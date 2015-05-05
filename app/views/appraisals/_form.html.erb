@@ -25,9 +25,9 @@
       <div class="col-sm-10">
         <%= hidden_field_tag 'appraisal[appraisee_ids][]', nil, style: 'width: 100%;' %>
         <%= render partial: 'appraisees_select2_config', locals: {f: f} %>
-        <span class="span-danger"><%= display_errors(f.object, :appraisee_ids) %></span> 
+        <span class="span-danger"><%= display_errors(f.object, :appraisee_ids) %></span>
+        <%= appraisees_with_tags(f.object) %>  
       </div>
-      
     </div>
 
     <legend><%= t('appraisal_validity') %></legend>

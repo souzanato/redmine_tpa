@@ -24,9 +24,9 @@ class Appraisal < ActiveRecord::Base
 
   belongs_to :author, class_name: 'User', foreign_key: 'author_id'
 
-  def appraisee_ids=(val)
-    val.first.split(',').collect {|v| v.to_i}
-  end
+  # def appraisee_ids=(val)
+  #   val.first.split(',').collect {|v| v.to_i}
+  # end
 
   def template_name_and_appraisers
     unless self.template

@@ -6,17 +6,11 @@
   <dd class="appraisal-lists">
     <% aq.appraisal_question_options.each do |qo| %>
     	<div id="appraisal-<%=@appraisal.id%>-appraisal-question-option-<%=qo.id%>-tag-form">
-	    	<%= form_for TpaTag.new, remote: true do |f| %>
-	    		<%= f.hidden_field :appraisal_question_option_id, value: qo.id %>
-	    		<%= f.hidden_field :appraisal_id, value: @appraisal.id %>
-	    		<%= f.hidden_field :user_id, value: User.current.id %>
-	    		<%= button_tag type: 'submit', 
-	    			style: TpaTag.where(user_id: User.current.id, appraisal_question_option_id: qo.id, appraisal_id: @appraisal.id).any? ? "color: #337ab7" : "color: #ccc",
-	    			id: "appraisal-#{@appraisal.id}-appraisal-question-option-#{qo.id}-tag-link" do %>
-	  					<%=  "<i class='fa fa-tag'></i>".html_safe %>
-				<% end %>
-	    	<% end %>
-	   		<%= qo.content %><br/>
+    	<% if tpa_tag = TpaTag.find_by_user_id_and_appraisal_question_option_id_and_appraisal_id(User.current.id, qo.id, @appraisal.id) %>
+    		<%= render partial: 'tpa_tags/tag_destroy_form', locals: {tpa_tag: tpa_tag} %>
+    	<% else %>
+    		<%= render partial: 'tpa_tags/tag_create_form', locals: {appraisal_question_option: qo, appraisal: @appraisal} %>
+    	<% end %>
     	</div>
     <% end %>
   </dd>

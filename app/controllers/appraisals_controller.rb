@@ -9,7 +9,7 @@
       @appraisals = Appraisal
         .joins(:appraisees, :appraisers)
         .where("template is false and (appraisal_appraisees.user_id in (?) or appraisal_appraisers.id in (?))",
-          User.current.id, User.current.id)
+          User.current.id, User.current.id).uniq
     end
 
     def show
@@ -23,6 +23,9 @@
     end
 
     def create
+      params[:appraisal][:appraisee_ids] = params[:appraisal][:appraisee_ids].first.split(',').map {|v| v.to_i}
+      params[:appraisal][:appraiser_ids] = params[:appraisal][:appraiser_ids].first.split(',').map {|v| v.to_i}
+
       @appraisal = Appraisal.new(appraisal_params)
       @appraisal.template = false
 
@@ -41,6 +44,9 @@
     end
 
     def update
+      params[:appraisal][:appraisee_ids] = params[:appraisal][:appraisee_ids].first.split(',').map {|v| v.to_i}
+      params[:appraisal][:appraiser_ids] = params[:appraisal][:appraiser_ids].first.split(',').map {|v| v.to_i}
+
       respond_to do |format|
         if @appraisal.update(appraisal_params)
           format.html { redirect_to appraisal_path(@appraisal), notice: t('appraisal_successfully_updated') }

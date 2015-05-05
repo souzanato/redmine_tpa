@@ -28,5 +28,18 @@ module AppraisalsHelper
 		appraisers.map {|a| "{id: #{a.id}, appraiser_info: \"#{a.login} - #{a.name}\"}"}.join(',')
 	end
 
+	def appraisees_with_tags(appraisal)
+		html = "<div class='apraisee-with-tags' style='margin-top: 10px;'>"
+		shielded_appraisees = Array.new
+		appraisal.appraisees.each do |a|
+			shielded_appraisees << TpaTag.where(user_id: a.id, appraisal_id: appraisal.id).map{|tt| tt.appraisee}.uniq.each do |a|
+				html += <<-HTML
+					<i class='fa fa-exclamation-triangle'></i> #{t('already_started_to_tagging', appraisee_name: "#{a.firstname} #{a.lastname}")} <br/>
+				HTML
+			end
+		end		
+		html += '</div>'
+		html.html_safe
+	end
 
 end

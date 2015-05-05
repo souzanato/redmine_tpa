@@ -13,7 +13,7 @@ Redmine::Plugin.register :redmine_tpa do
   # Menu
   menu :top_menu, 
   	:tpa, 
-  	{ :controller => 'redmine_tpa', :action => 'index'}, 
+  	{ :controller => 'appraisals', :action => 'index'}, 
   	:caption => :redmine_tpa, if: Proc.new {
       User.current.logged?
     }

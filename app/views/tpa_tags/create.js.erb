@@ -1,5 +1,5 @@
 <% unless @tpa_tag.errors.any? %>
-	$("#appraisal-<%=@tpa_tag.appraisal.id%>-appraisal-question-option-<%=@tpa_tag.appraisal_question_option.id%>-tag-form").html("<%= escape_javascript(render partial: 'tag_destroy_form')%>");
+	$("#appraisal-<%=@tpa_tag.appraisal.id%>-appraisal-question-option-<%=@tpa_tag.appraisal_question_option.id%>-tag-form").html("<%= escape_javascript(render partial: 'tag_destroy_form', locals: {tpa_tag: @tpa_tag})%>");
 <% else %>
 	alert('Error.')
 <% end %>
