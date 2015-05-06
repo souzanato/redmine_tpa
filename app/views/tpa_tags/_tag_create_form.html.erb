@@ -1,9 +1,10 @@
-<%= form_for TpaTag.new, remote: true do |f| %>
+<%= form_for [appraisal, User.current, TpaTag.new], remote: true do |f| %>
 	<%= f.hidden_field :appraisal_question_option_id, value: appraisal_question_option.id %>
 	<%= f.hidden_field :appraisal_id, value: appraisal.id %>
 	<%= f.hidden_field :user_id, value: User.current.id %>
+	<%= f.hidden_field :issue_id, value: issue_id %>
 	<%= button_tag type: 'submit', 
-		style: "color: #ccc" do %>
+		style: "color: #ccc", class: 'tpa-button' do %>
 			<%=  "<i class='fa fa-tag'></i>".html_safe %>
 	<% end %>
 <% end %> <%=  appraisal_question_option.content %><br/>

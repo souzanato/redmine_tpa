@@ -6,10 +6,10 @@
   <dd class="appraisal-lists">
     <% aq.appraisal_question_options.each do |qo| %>
     	<div id="appraisal-<%=@appraisal.id%>-appraisal-question-option-<%=qo.id%>-tag-form">
-    	<% if tpa_tag = TpaTag.find_by_user_id_and_appraisal_question_option_id_and_appraisal_id(User.current.id, qo.id, @appraisal.id) %>
-    		<%= render partial: 'tpa_tags/tag_destroy_form', locals: {tpa_tag: tpa_tag} %>
+    	<% if tpa_tag = TpaTag.find_by_user_id_and_appraisal_question_option_id_and_appraisal_id_and_issue_id(User.current.id, qo.id, @appraisal.id, issue_id) %>
+    		<%= render partial: 'tpa_tags/tag_destroy_form', locals: {tpa_tag: tpa_tag, issue_id: issue_id} %>
     	<% else %>
-    		<%= render partial: 'tpa_tags/tag_create_form', locals: {appraisal_question_option: qo, appraisal: @appraisal} %>
+    		<%= render partial: 'tpa_tags/tag_create_form', locals: {appraisal_question_option: qo, appraisal: @appraisal, issue_id: issue_id} %>
     	<% end %>
     	</div>
     <% end %>

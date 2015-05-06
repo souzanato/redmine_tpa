@@ -2,7 +2,10 @@ class TpaTagsController < ApplicationController
     before_action :set_tpa_tag, only: [:show, :edit, :update, :destroy]
 
     def index
-      # @tpa_tag = Appraisal.where(template: true).order(:name)
+      @appraisal = Appraisal.find(params[:appraisal_id])
+      @user = User.find(params[:user_id])
+
+      render_403 :message => t('notice_not_authorized') unless (User.current.id == params[:user_id].to_i or @appraisal.appraisers.include?(User.current))
     end
 
     def show
@@ -52,7 +55,7 @@ class TpaTagsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def tpa_tag_params
-      params[:tpa_tag].permit(:appraisal_question_option_id, :appraisal_id, :user_id)
+      params[:tpa_tag].permit(:appraisal_question_option_id, :appraisal_id, :user_id, :issue_id)
     end
 end
 

@@ -14,6 +14,7 @@
     <%= stylesheet_link_tag 'appraisals', :plugin => 'redmine_tpa' %>
     <%= stylesheet_link_tag 'appraisals_questions', :plugin => 'redmine_tpa' %>
     <%= stylesheet_link_tag 'select2', :plugin => 'redmine_tpa' %>
+    <%= stylesheet_link_tag 'tpa_tags', :plugin => 'redmine_tpa' %>
     <%= javascript_include_tag 'select2', :plugin => 'redmine_tpa' %>
     <%= javascript_include_tag 'bootstrap.min', :plugin => 'redmine_tpa' %>
     <%= javascript_include_tag 'appraisals_templates', :plugin => 'redmine_tpa' %>
@@ -27,7 +28,7 @@
 	<div class="row">
 	<div class="col-md-2 sidebar left">
 		<ul class="nav nav-sidebar">
-			<li><%= active_link_to "<span class='tpa-left-menu-icon'><i class='fa fa-paper-plane'></i></span> #{t('appraisals')}".html_safe, appraisals_path, active: [["appraisals"],["show","index"]] %></li>
+			<li><%= active_link_to "<span class='tpa-left-menu-icon'><i class='fa fa-paper-plane'></i></span> #{t('appraisals')}".html_safe, appraisals_path, active: [["appraisals","tpa_tags"],[]] %></li>
 			<li><%= active_link_to "<span class='tpa-left-menu-icon'><i class='fa fa-file'></i></span> #{t('appraisals_templates')}".html_safe, appraisals_templates_path, active: [["appraisals_templates"],["show","index"]] %></li>
 		</ul>
 	</div>

@@ -14,7 +14,7 @@
 
     def show
       if params[:questions_and_options]
-        render partial: 'questions_and_options'      
+        render partial: 'questions_and_options', locals: {issue_id: params[:issue_id]}      
       end
     end
 

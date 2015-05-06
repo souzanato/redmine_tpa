@@ -1,0 +1,27 @@
+<%= render 'layout/prepend' %>
+  
+  <% @appraisal.appraisal.appraisal_questions.each do |aq| %>
+  <dt class="appraisal-lists tag-dt"><i class="fa fa-angle-double-right"></i> <strong><%= aq.content %>:</strong></dt>
+    <dd class="appraisal-lists tag-dd">
+      <% aq.appraisal_question_options.each do |qo| %>
+        <span class='qo-content'><i class="fa fa-angle-right"></i> <%= qo.content %><br/></span>
+        <% tpa_tags = TpaTag.where('appraisal_id = ? and user_id = ? and appraisal_question_option_id = ?', @appraisal.id, User.find(params[:user_id]).id, qo.id) %>
+		<% if tpa_tags.any? %>
+	        <% tpa_tags.each do |tag| %>
+	        	<span class="tag-view"><i class="fa fa-tag"></i> <%= link_to "#{tag.issue}", issue_path(tag.issue) %></span><br/>
+	        <% end %>			
+		<% else %>
+			<span class="tag-view"><i class="fa fa-close"></i> <%= t('no_tags_found') %></span><br/>			
+		<% end %>
+	    <br/>
+      <% end %>
+    </dd>
+  <% end %>
+
+<div class="form-actions">
+	<%= link_to t('.back', :default => t("helpers.links.back")),
+	              appraisal_path(@appraisal), :class => 'btn btn-default'  %>
+</div>
+
+
+<%= render partial: 'layout/append', locals: {bomb_text: t('helpers.links.reading'), bomb_icon: :eye} %>

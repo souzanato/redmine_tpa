@@ -21,7 +21,11 @@
   <dt><strong><%= t('appraisal_appraisees') %>:</strong></dt>
   <dd class="appraisal-lists">
     <% @appraisal.appraisees.each do |u| %>
-      <i class="fa fa-angle-double-right"></i> <%= u.login %> - <%= u.name %><br/>
+      <% if User.current == u or @appraisal.appraisers.include?(User.current)%>
+        <i class="fa fa-angle-double-right"></i> <%= link_to "#{u.login} - #{u.name}", appraisal_user_tpa_tags_path(@appraisal, u.id) %><br/>  
+      <% else %>
+        <i class="fa fa-angle-double-right"></i> <%= u.login %> - <%= u.name %><br/>  
+      <% end %>     
     <% end %>
   </dd>
 </dl>

@@ -59,6 +59,7 @@ pt-BR:
 
   # labels
   no_data: "Sem registro"
+  no_tags_found: "Nenhuma marcação encontrada"
   appraisal_name: "Nome"
   appraisal_description: "Descrição"
   appraisal_question_content: "Critério"

@@ -1,9 +1,12 @@
 # Plugin's routes
 # See: http://guides.rubyonrails.org/routing.html
 
-resources :appraisals
+resources :appraisals do
+	resources :users do
+		resources :tpa_tags
+	end	
+end
 resources :appraisals_templates
-resources :tpa_tags
 
 get 'tpa' => 'redmine_tpa#index'
 get 'appraisal_appraisees' => 'appraisal_appraisees#index'

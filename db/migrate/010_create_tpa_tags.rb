@@ -4,6 +4,7 @@ class CreateTpaTags < ActiveRecord::Migration
       t.belongs_to :appraisal, index: true
       t.belongs_to :appraisal_question_option, index: true
       t.belongs_to :user, index: true
+      t.belongs_to :issue
     end
   end
 end

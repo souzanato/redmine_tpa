@@ -20,14 +20,15 @@ $(document).ready(function(){
 		$('#tag-for-pa').show();
 	});
 
-	$('body').on('change', '#appraisal_id_select', function(){
+	$('body').on('change', '.appraisal_id_select', function(){
 		if($(this).val() != ''){
 			jQuery.ajax({
 		      url: '/appraisals/' + $(this).val(),
 		      timeout: 10000,
 		      type: 'GET',
 		      data: {
-		      	questions_and_options: true
+		      	questions_and_options: true, 
+		      	issue_id: $(this).attr('id')
 		      },
 		      dataType: 'html',
 		      success: function(data) {
