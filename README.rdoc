@@ -27,7 +27,7 @@ Check {GNU GPL v3 quick guide}[http://www.gnu.org/licenses/quick-guide-gplv3.htm
 
 == Credits
 * paper_trail[https://github.com/airblade/paper_trail]
-* active_link_to[active_link_to]
+* active_link_to[https://github.com/comfy/active_link_to]
 * will_paginate[https://github.com/mislav/will_paginate]
 * select2[https://github.com/select2/select2]
 * twitter bootstrap[http://getbootstrap.com]
