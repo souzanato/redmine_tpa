@@ -22,9 +22,10 @@
 						return {
 							q: term,
 							page_limit: 10,
-							page: page
+							page: page,
+							user_logged: <%=User.current.logged?%>
 						};
-					},
+					}, 
 					results: function (data, page) {
 					    var more = (page * 10) < data.total; 
 					    return {results: data.appraisees, more: more};

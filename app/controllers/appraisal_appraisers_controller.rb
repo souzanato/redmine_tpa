@@ -2,6 +2,8 @@ require 'will_paginate/array'
 
 class AppraisalAppraisersController < ApplicationController
     unloadable
+    before_action :user_logged?
+
     def index
        	appraisers_hash = User.where("login <> '' and login is not null").order('login').to_a.map(&:serializable_hash)        
         appraisers_hash.each{|h| h.merge!(appraiser_info: "#{h["login"]} - #{h["firstname"]} #{h["lastname"]}")}
@@ -15,6 +17,13 @@ class AppraisalAppraisersController < ApplicationController
                 :links => { :self => appraisers_hash.current_page , :next => appraisers_hash.next_page}
                 } 
             }
+        end
+    end
+
+    private
+    def user_logged?
+        unless params[:user_logged] == 'true' or User.current.logged?
+            redirect_to signin_path
         end
     end
 end

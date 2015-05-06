@@ -35,7 +35,7 @@
   </fieldset>
 
   <div class="form-actions">
-  	<%= f.submit nil, :class => 'btn btn-primary' %>
+  	<%= f.submit (action_name == 'new' ? t('create_appraisal_template') : t('update_appraisal_template')), :class => 'btn btn-primary' %>
   	<%= link_to t("button_cancel"),
             appraisals_templates_path, :class => 'btn btn-default' %>
   </div>

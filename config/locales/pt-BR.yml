@@ -56,6 +56,7 @@ pt-BR:
   remove_appraisal_question: "Remover critério"
   remove_appraisal_question_option: "Remover opção"
   create_appraisal_template: "Criar modelo de avaliação"
+  update_appraisal_template: "Atualizar modelo de avaliação"
   welcome: "Boas-vindas"
 
   # labels

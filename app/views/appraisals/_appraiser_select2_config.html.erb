@@ -22,7 +22,8 @@
 						return {
 							q: term,
 							page_limit: 10,
-							page: page
+							page: page,
+							user_logged: <%=User.current.logged?%>
 						};
 					},
 					results: function (data, page) {

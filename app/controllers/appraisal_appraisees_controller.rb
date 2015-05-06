@@ -22,7 +22,7 @@ class AppraisalAppraiseesController < ApplicationController
 
     private
     def user_logged?
-        unless User.current.logged?
+        unless params[:user_logged] == 'true' or User.current.logged?
             redirect_to signin_path
         end
     end
