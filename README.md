@@ -17,9 +17,9 @@ Redmine TPA (Tag for Performance Appraisal) is a redmine plugin that helps appra
     
 * Run:
 
-		`cd /{redmineInstalationDir}`
-		`bundle install`
-		`rake db:migrate_plugins NAME=redmine_tpa`
+	`cd /{redmineInstalationDir}`
+	`bundle install`
+	`rake db:migrate_plugins NAME=redmine_tpa`
 	
 * Restart your redmine application.
 
