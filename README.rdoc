@@ -28,9 +28,9 @@ Redmine TPA (Tag for Performance Appraisal) is a redmine plugin that helps appra
 
 If you want to contribute, please:
 
-	* Fork the project.
-	* Make your translation, feature addition or bug fix.
-	* Send me a pull request on Github.
+	 * Fork the project.
+	 * Make your translation, feature addition or bug fix.
+	 * Send me a pull request on Github.
 
 == License
  
