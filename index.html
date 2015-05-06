@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>Redmine TPA</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/stylesheets/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="assets/stylesheets/navbar-fixed-top.css" rel="stylesheet">
+
+    <!-- redmine_tpa css -->
+    <link href="assets/stylesheets/redmine_tpa.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="assets/javascripts/ie-emulation-modes-warning.js"></script>
+
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="https://github.com/hylozero/redmine_tpa">redmine_tpa</a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container">
+      <!-- Main component for a primary marketing message or call to action -->
+
+      <div class="row">
+        <div class="col-md-3 col-sm-3 col-xs-12">
+          <h2>Redmine TPA<br/>
+            <small>Tags for Personal Appraisal</small><br/>
+          </h2>
+          
+        </div>
+        <div class="col-md-9" id="tpa-content">
+          <div class="jumbotron">
+            <p>Redmine TPA (Tag for Performance Appraisal) é um plugin redmine que ajuda avaliadores em avaliações de desempenho. Ele torna possível a criação de marcações que unem tarefas a critérios pré-estabelecidos ou objetivos organizacionais.</p>
+
+            <p>Redmine TPA (Tag for Performance Appraisal) is a redmine plugin that helps appraisers and appraisees in Performance Appraisals. The plugin makes possible to create tags that link issues to pre-established criteria or organizational objectives.</p>
+
+            <p><i class="fa fa-github"></i> <a href="https://github.com/hylozero/redmine_tpa">Github</a></p>
+          </div>
+
+          <h4>Criação de modelos de avaliação / Creating an Appraisal Template</h4>
+          <img id="modelo-avaliacao" src="assets/images/modelo_avaliacao_png.png" alt="" data-wait="true" data-gif="assets/images/modelo_avaliacao.gif" style="width: 100%;" />
+          <hr>
+          <h4>Criação de Avaliações / Creating an Appraisal</h4>
+          <img id="avaliacao" src="assets/images/avaliacao_png.png" alt="" data-wait="true" data-gif="assets/images/avaliacao.gif" style="width: 100%;" />
+          <hr>
+          <h4>Criação de marcações / Creating Tags</h4>
+          <img id="criacao-tag" src="assets/images/criar_tag_png.png" alt="" data-wait="true" data-gif="assets/images/criar_tag.gif" style="width: 100%;" />
+          <hr>
+          <h4>Visualização de marcações / Viewing tags</h4>
+          <img id="visualizacao-tag" src="assets/images/visualizar_tag_png.png" alt="" data-wait="true" data-gif="assets/images/visualizar_tag.gif" style="width: 100%;" />
+        </div>
+
+
+      </div>
+
+    </div> <!-- /container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="assets/javascripts/jquery-1.11.2.min.js"></script>
+    <script src="assets/javascripts/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="assets/javascripts/ie10-viewport-bug-workaround.js"></script>
+
+    <!-- gifplayer  -->
+    <link href="assets/stylesheets/gifplayer.css" rel="stylesheet">
+    <script src="assets/javascripts/gifplayer.js"></script>
+
+    <script type="text/javascript">
+      $(document).ready( function(){
+        $('#modelo-avaliacao').gifplayer();
+        $('#avaliacao').gifplayer();
+        $('#criacao-tag').gifplayer();
+        $('#visualizacao-tag').gifplayer();
+      })
+    </script>
+  </body>
+</html>
