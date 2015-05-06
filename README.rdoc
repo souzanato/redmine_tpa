@@ -16,6 +16,7 @@ Redmine TPA (Tag for Performance Appraisal) is a redmine plugin that helps appra
     git clone https://github.com/hylozero/redmine_tpa.git redmine_tpa
     
 * Run 
+   bundle install
    rake db:migrate_plugins NAME=redmine_tpa
 	
 * Restart your redmine application.
