@@ -6,7 +6,7 @@ Redmine Tag for PA is a redmine plugin that helps appraisers and appraisees in P
 
 === Requirements
 
-* Redmine 3.0.1 or higher;
+* Tested on Redmine 3.0.1;
 
 === Step-by-step
 
