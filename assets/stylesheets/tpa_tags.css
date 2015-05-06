@@ -1,3 +1,11 @@
 .tag-view {
 	margin-left: 10px;
 }
+
+.no-tags-icon {
+	color: #a94442;
+}
+
+.tag-icon {
+	color: #31708f;
+}

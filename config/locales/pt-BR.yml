@@ -12,6 +12,7 @@ pt-BR:
   appraisal_end_date: "Término"
   welcome_to_redmine_tpa: "Bem-vindo ao Redmine TPA!"
   tpa: "Tag for Performance Appraisal"
+  tags: "Marcações"
 
   # Permissions
   permission_read_appraisals: "Ver Avaliações"
@@ -66,6 +67,7 @@ pt-BR:
   appraisal_question_option_content: "Opção"
   appraisal_start_date: "Data inicial"
   appraisal_end_date: "Data final"
+  appraisal_appraisee: "Participante"
   appraisal_appraisees: "Participante(s)"
   appraisal_appraisers: "Avaliador(es)"
   appraisal_template: "Modelo"

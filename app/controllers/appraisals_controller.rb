@@ -1,5 +1,6 @@
   class AppraisalsController < ApplicationController
     unloadable
+    before_action :user_logged?
     before_action :set_appraisal, only: [:show, :edit, :update, :destroy, :authorize_appraisal, :authorize_manage]
     before_action :authorize_manage, only: [:edit, :update, :destroy]
     before_action :authorize_appraisal, only: [:show]
@@ -88,5 +89,12 @@
     def appraisal_params
       params[:appraisal].permit(:name, :description, :project_id, :template, :appraisal_template_id, :start_date, :end_date, :appraisal_id, {appraiser_ids: []}, {appraisee_ids: []})
     end
+
+    def user_logged?
+        unless User.current.logged?
+            redirect_to signin_path
+        end
+    end
+
 
   end

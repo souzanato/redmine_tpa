@@ -1,5 +1,16 @@
 <%= render 'layout/prepend' %>
-  
+<dl class="dl-horizontal">
+  <dt><strong><%= t('appraisal_appraisee') %>:</strong></dt>
+  <dd><%= User.find(params[:user_id]) %></dd>
+
+  <dt><strong><%= t('appraisal_appraisers') %>:</strong></dt>
+  <dd class="appraisal-lists">
+    <% @appraisal.appraisers.each do |u| %>
+      <i class="fa fa-angle-double-right"></i> <%= u.login %> - <%= u.name %><br/>
+    <% end %>
+  </dd>
+
+  <dt><strong><%= t('tags') %>:</strong></dt>
   <% @appraisal.appraisal.appraisal_questions.each do |aq| %>
   <dt class="appraisal-lists tag-dt"><i class="fa fa-angle-double-right"></i> <strong><%= aq.content %>:</strong></dt>
     <dd class="appraisal-lists tag-dd">
@@ -8,10 +19,10 @@
         <% tpa_tags = TpaTag.where('appraisal_id = ? and user_id = ? and appraisal_question_option_id = ?', @appraisal.id, User.find(params[:user_id]).id, qo.id) %>
 		<% if tpa_tags.any? %>
 	        <% tpa_tags.each do |tag| %>
-	        	<span class="tag-view"><i class="fa fa-tag"></i> <%= link_to "#{tag.issue}", issue_path(tag.issue) %></span><br/>
+	        	<span class="tag-view"><i class="fa fa-tag tag-icon"></i> <%= "#{tag.issue.tracker.name} ##{tag.issue.id}:" %> <%= link_to "#{tag.issue.subject}", issue_path(tag.issue) %></span><br/>
 	        <% end %>			
 		<% else %>
-			<span class="tag-view"><i class="fa fa-close"></i> <%= t('no_tags_found') %></span><br/>			
+			<span class="tag-view"><i class="fa fa-close no-tags-icon"></i> <%= t('no_tags_found') %></span><br/>			
 		<% end %>
 	    <br/>
       <% end %>
@@ -23,5 +34,5 @@
 	              appraisal_path(@appraisal), :class => 'btn btn-default'  %>
 </div>
 
-
+</dl>
 <%= render partial: 'layout/append', locals: {bomb_text: t('helpers.links.reading'), bomb_icon: :eye} %>
