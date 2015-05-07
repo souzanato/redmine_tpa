@@ -4,6 +4,8 @@ Redmine TPA (Tags for Performance Appraisal) is a redmine plugin that helps Perf
 
 Redmine TPA (Tags for Performance Appraisal) é um plugin redmine que auxilia avaliações de desempenho. Ele torna possível a ligação de tarefas à critérios ou objetivos organizacionais pré-estabelecidos.
 
+For more information please visit http://hylozero.github.io/redmine_tpa
+
 ## How to install 
 
 ### Requirements
