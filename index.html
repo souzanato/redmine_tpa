@@ -35,6 +35,19 @@
 
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
+    <!-- Magnific Popup core CSS file -->
+    <link rel="stylesheet" href="assets/stylesheets/magnific-popup.css"> 
+
+    <!-- Magnific Popup core JS file -->
+    <script src="assets/javascripts/jquery.magnific-popup.min.js"></script>
+
+    <script type="text/javascript">
+    $(document).ready(function(){
+      $('.magnific-popup').magnificPopup({ 
+        type: 'image'
+      });
+    });
+    </script>
   </head>
 
   <body>
@@ -60,9 +73,9 @@
         </div>
         <div class="col-md-8 col-sm-8 col-xs-12">
           <div class="jumbotron">
-            <p>Redmine TPA (Tag for Performance Appraisal) é um plugin redmine que auxilia avaliações de desempenho. Ele torna possível a criação de marcações que unem tarefas a critérios pré-estabelecidos ou objetivos organizacionais.</p>
-
             <p>Redmine TPA (Tag for Performance Appraisal) is a redmine plugin that helps Performance Appraisals. It makes possible to create tags that link issues to pre-established criteria or organizational objectives.</p>
+
+            <p>Redmine TPA (Tag for Performance Appraisal) é um plugin redmine que auxilia avaliações de desempenho. Ele torna possível a criação de marcações que unem tarefas a critérios pré-estabelecidos ou objetivos organizacionais.</p>
 
             <hr>
             <p><i class="fa fa-github"></i> <a href="https://github.com/hylozero/redmine_tpa">Github</a></p>
@@ -75,49 +88,63 @@
 
         <div class="col-md-4 col-sm-4 col-xs-12">
           <h4>
-            Crie modelos de avaliação<br/>
-            <small>Create Appraisal Templates</small></h4>
+            Create Appraisal Templates<br/>
+            <small>Crie modelos de avaliação</small></h4>
         </div>
 
         <div class="col-md-8 col-sm-8 col-xs-12">
-          <img src="assets/images/modelo_avaliacao.jpg" style="width: 100%;"/>
+          <a href="assets/images/modelo_avaliacao.png" class='magnific-popup' title="Create Appraisal Templates / Crie modelos de avaliação">
+            <img id="modelo-avaliacao" src="assets/images/modelo_avaliacao.png" class="example-image"/>
+          </a>
           <hr>
         </div>
 
         <div class="col-md-4 col-sm-4 col-xs-12">
           <h4>
-            Crie Avaliações<br/>
-            <small>Create Appraisals</small>
+            Create Appraisals<br/>
+            <small>Crie Avaliações</small>
           </h4>
         </div>
 
         <div class="col-md-8 col-sm-8 col-xs-12">
-          <img src="assets/images/avaliacao.jpg" class="freezeframe" style="width: 100%;"/>
+          <a href="assets/images/avaliacao.png" class='magnific-popup' title="Create Appraisals / Crie Avaliações">
+            <img src="assets/images/avaliacao.png" class="example-image"/>
+          </a>
           <hr>
         </div>
 
         <div class="col-md-4 col-sm-4 col-xs-12">
           <h4>
-            Faça marcações<br/>
-            <small>Tag</small>
+            Tag<br/>
+            <small>Faça marcações</small>
           </h4>
         </div>
 
         <div class="col-md-8 col-sm-8 col-xs-12">
-          <img src="assets/images/criar_tag.jgp" class="freezeframe" style="width: 100%;"/>
+          <a href="assets/images/criar_tag.png" class='magnific-popup' title="Tag / Faça marcações">
+            <img src="assets/images/criar_tag.png" class="example-image"/>
+          </a>
           <hr>
         </div>
 
         <div class="col-md-4 col-sm-4 col-xs-12">
           <h4>
-            Visualize marcações<br/>
-            <small>View tags</small>
+            View tags<br/>
+            <small>Visualize marcações</small>
           </h4>
         </div>
 
         <div class="col-md-8 col-sm-8 col-xs-12">
-          <img src="assets/images/visualizar_tag.jpg" class="freezeframe" style="width: 100%;"/>
+          <a href="assets/images/visualizar_tag.png" class='magnific-popup' title="View tags / Visualize marcações">
+            <img src="assets/images/visualizar_tag.png" class="example-image"/>
+          </a>
         </div>
     </div> <!-- /container -->
+
+    <footer class="footer">
+    <div class="container">
+    <p class="text-muted">Redmine TPA | hylozero | 2015 </p>
+    </div>
+    </footer>
   </body>
 </html>

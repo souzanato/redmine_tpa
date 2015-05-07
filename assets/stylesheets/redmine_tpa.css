@@ -6,3 +6,12 @@
     font-size: 18px;
 }
 
+.example-image {
+	border: 1px solid #e7e7e7;
+	width: 100%;
+}
+footer {
+	border-top: 1px solid #bbb;
+	margin-top: 50px;
+	text-align: center;
+}
