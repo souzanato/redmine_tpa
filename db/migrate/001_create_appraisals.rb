@@ -7,8 +7,8 @@ class CreateAppraisals < ActiveRecord::Migration
       t.date :end_date
       t.boolean :template
       t.belongs_to :appraisal, index: true
-      t.integer :appraiser_id
       t.integer :author_id
+      t.text :appraiser_note
     end
   end
 end

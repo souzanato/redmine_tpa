@@ -10,8 +10,9 @@ pt-BR:
   appraisal_validity: "Vigência"
   appraisal_start_date: "Inicio"
   appraisal_end_date: "Término"
+  appraisal_other_info: "Outras informações"
   welcome_to_redmine_tpa: "Bem-vindo ao Redmine TPA!"
-  tpa: "Tag for Performance Appraisal"
+  tpa: "Tags for Performance Appraisal"
   tags: "Marcações"
 
   # Permissions
@@ -31,9 +32,9 @@ pt-BR:
   no_appraisals_found: "Nenhuma avaliação encontrada"
   no_appraisals_templates_found: "Nenhum modelo de avaliação encontrado"
   insert_at_least_one_appraisal_question: "Entre com pelo menos um critério"
-  insert_at_least_one_appraisal_question_option: "Entre com pelo menos uma opção"
+  insert_at_least_one_appraisal_question_option: "Entre com pelo menos um subcritério"
   duplicate_appraisal_questions: "A pergunta \"%{question}\" parece estar duplicada."
-  duplicate_appraisal_question_options: "A pergunta \"%{question}\" parece estar com a opção \"%{option}\" duplicada."
+  duplicate_appraisal_question_options: "A pergunta \"%{question}\" parece estar com o subcritério \"%{option}\" duplicado."
   appraisal_end_dat_must_be_after_start_date: "Data final menor que data inicial"
   insert_at_least_one_appraisal_appraisee: "Entre com pelo menos um avaliado"
   insert_at_least_one_appraisal_appraiser: "Entre com pelo menos um avaliador"
@@ -52,9 +53,9 @@ pt-BR:
   appraisals_templates: "Modelos de Avaliações"  
   creating_appraisals_templates: "Criando Modelos de Avaliações"
   add_appraisal_question: "Adicionar Critério"
-  add_appraisal_question_option: "Adicionar Opção"
+  add_appraisal_question_option: "Adicionar Subcritério"
   remove_appraisal_question: "Remover critério"
-  remove_appraisal_question_option: "Remover opção"
+  remove_appraisal_question_option: "Remover subcritério"
   create_appraisal_template: "Criar modelo de avaliação"
   update_appraisal_template: "Atualizar modelo de avaliação"
   welcome: "Boas-vindas"
@@ -65,7 +66,7 @@ pt-BR:
   appraisal_name: "Nome"
   appraisal_description: "Descrição"
   appraisal_question_content: "Critério"
-  appraisal_question_option_content: "Opção"
+  appraisal_question_option_content: "Subcritério"
   appraisal_start_date: "Data inicial"
   appraisal_end_date: "Data final"
   appraisal_appraisee: "Participante"
@@ -75,6 +76,7 @@ pt-BR:
   appraisal_template_name: "Nome"
   appraisal_template_description: "Descrição"
   appraisal_template_author: "Autor"
+  appraisal_appraiser_note: "Observações do Avaliador"
 
   # Helpers
   helpers:
@@ -102,7 +104,7 @@ pt-BR:
     models:
       appraisal: "Avaliação"
       appraisal_question: "Critério"
-      appraisal_question_option: "Opção"
+      appraisal_question_option: "Subcritério"
     attributes:
       appraisal:
         name: "Nome"
@@ -112,4 +114,4 @@ pt-BR:
       appraisal_question:
         content: "Pergunta"
       appraisal_question_option:
-        content: "Opção"
+        content: "Subcritério"

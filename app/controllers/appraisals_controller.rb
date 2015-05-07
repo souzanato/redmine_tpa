@@ -9,7 +9,7 @@
     def index
       @appraisals = Appraisal
         .joins(:appraisees, :appraisers)
-        .where("template is false and (appraisal_appraisees.user_id in (?) or appraisal_appraisers.id in (?))",
+        .where("template is false and (appraisal_appraisees.user_id in (?) or appraisal_appraisers.user_id in (?))",
           User.current.id, User.current.id).uniq
     end
 
@@ -87,7 +87,7 @@
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def appraisal_params
-      params[:appraisal].permit(:name, :description, :project_id, :template, :appraisal_template_id, :start_date, :end_date, :appraisal_id, {appraiser_ids: []}, {appraisee_ids: []})
+      params[:appraisal].permit(:name, :description, :project_id, :template, :appraisal_template_id, :start_date, :end_date, :appraisal_id, :appraiser_note, {appraiser_ids: []}, {appraisee_ids: []})
     end
 
     def user_logged?

@@ -1,6 +1,6 @@
 # Redmine TPA 
 
-Redmine TPA (Tag for Performance Appraisal) is a redmine plugin that helps appraisers and appraisees in Performance Appraisals. The plugin makes possible to create tags that link issues to pre-established criteria or organizational objectives.
+Redmine TPA (Tags for Performance Appraisal) is a redmine plugin that helps appraisers and appraisees in Performance Appraisals. The plugin makes possible to create tags that link issues to pre-established criteria or organizational objectives.
 
 ## How to install 
 
@@ -38,7 +38,7 @@ If you want to contribute, please:
 
 ## License
  
-Redmine Tag for PA Plugin is open source and released under the terms of the {GNU General Public License - GPL - v3}[https://github.com/hylozero/redmine_tpa/blob/master/license.txt].
+Redmine TPA Plugin is open source and released under the terms of the {GNU General Public License - GPL - v3}[https://github.com/hylozero/redmine_tpa/blob/master/license.txt].
 Check {GNU GPL v3 quick guide}[http://www.gnu.org/licenses/quick-guide-gplv3.html] for more information.
 
 ## Credits

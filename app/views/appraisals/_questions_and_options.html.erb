@@ -1,8 +1,15 @@
 <%= stylesheet_link_tag 'redmine_tpa', :plugin => 'redmine_tpa' %>
 <%= stylesheet_link_tag 'font-awesome.min', :plugin => 'redmine_tpa' %>
 
+<% unless @appraisal.appraiser_note.blank? %>
+    <dt class="appraisal-lists"><i class="fa fa-angle-double-right"></i> <%= t('appraisal_appraiser_note') %></dt>
+    <dd class="appraisal-lists">
+        <%=@appraisal.appraiser_note%>
+    </dd>
+<% end %>
+
 <% @appraisal.appraisal.appraisal_questions.each do |aq| %>
-	<dt class="appraisal-lists"><i class="fa fa-angle-double-right"></i> <%= aq.content %>:</dt>
+<dt class="appraisal-lists"><i class="fa fa-angle-double-right"></i> <%= aq.content %>:</dt>
   <dd class="appraisal-lists">
     <% aq.appraisal_question_options.each do |qo| %>
     	<div id="appraisal-<%=@appraisal.id%>-appraisal-question-option-<%=qo.id%>-tag-form">

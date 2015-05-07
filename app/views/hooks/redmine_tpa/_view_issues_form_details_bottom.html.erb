@@ -1,19 +1,21 @@
-<hr>
-<p><strong><%= t('redmine_tpa') %></strong></p>
-<%= stylesheet_link_tag 'bootstrap-grid', :plugin => 'redmine_tpa' %>
-<%= stylesheet_link_tag 'select2', :plugin => 'redmine_tpa' %>
-<%= javascript_include_tag 'select2', :plugin => 'redmine_tpa' %>
-<%= stylesheet_link_tag 'font-awesome.min', :plugin => 'redmine_tpa' %>
-<%= stylesheet_link_tag 'redmine_tpa', :plugin => 'redmine_tpa' %>
-<%= javascript_include_tag 'redmine_tpa', :plugin => 'redmine_tpa' %>
-<i class='fa fa-tag'></i> <%= link_to t('tag_for_pa'), '#', id: 'tag-for-pa-trigger' %>
+<% if Appraisal.joins(:appraisal_appraisees).where('appraisal_appraisees.user_id = ?', User.current.id).any? and User.current.logged? %>
+	<hr>
+	<p><strong><%= t('redmine_tpa') %></strong></p>
+	<%= stylesheet_link_tag 'bootstrap-grid', :plugin => 'redmine_tpa' %>
+	<%= stylesheet_link_tag 'select2', :plugin => 'redmine_tpa' %>
+	<%= javascript_include_tag 'select2', :plugin => 'redmine_tpa' %>
+	<%= stylesheet_link_tag 'font-awesome.min', :plugin => 'redmine_tpa' %>
+	<%= stylesheet_link_tag 'redmine_tpa', :plugin => 'redmine_tpa' %>
+	<%= javascript_include_tag 'redmine_tpa', :plugin => 'redmine_tpa' %>
+	<i class='fa fa-tag'></i> <%= link_to t('tag_for_pa'), '#', id: 'tag-for-pa-trigger' %>
 
-<div id="tag-for-pa">
-	<div class="row-fluid">
-		<div class="col-md-12" id="appraisals">
-		<%= select_tag 'appraisal_id_select', options_from_collection_for_select(Appraisal.joins(:appraisees).where('appraisal_appraisees.user_id = ?', User.current.id), :id, :template_name_and_appraisers), prompt: t('helpers.select.prompt'), class: 'select2-local appraisal_id_select', id: issue.id, style: 'width: 100%;' %>
+	<div id="tag-for-pa">
+		<div class="row-fluid">
+			<div class="col-md-12" id="appraisals">
+			<%= select_tag 'appraisal_id_select', options_from_collection_for_select(Appraisal.joins(:appraisees).where('appraisal_appraisees.user_id = ?', User.current.id), :id, :template_name_and_appraisers), prompt: t('helpers.select.prompt'), class: 'select2-local appraisal_id_select', id: issue.id, style: 'width: 100%;' %>
+			</div>
+			<div class="col-md-12" id="questions-and-options"></div>
 		</div>
-		<div class="col-md-12" id="questions-and-options"></div>
+		<div style="clear: both;"></div>
 	</div>
-	<div style="clear: both;"></div>
-</div>
+<% end %>
