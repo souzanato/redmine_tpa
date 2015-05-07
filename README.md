@@ -44,6 +44,7 @@ Redmine TPA Plugin is open source and released under the terms of the {GNU Gener
 Check {GNU GPL v3 quick guide}[http://www.gnu.org/licenses/quick-guide-gplv3.html] for more information.
 
 ## Credits
+* [redmine](http://www.redmine.org)
 * [paper_trail](https://github.com/airblade/paper_trail)
 * [active_link_to](https://github.com/comfy/active_link_to)
 * [will_paginate](https://github.com/mislav/will_paginate)
