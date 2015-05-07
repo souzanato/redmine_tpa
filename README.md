@@ -49,5 +49,5 @@ Check {GNU GPL v3 quick guide}[http://www.gnu.org/licenses/quick-guide-gplv3.htm
 * [active_link_to](https://github.com/comfy/active_link_to)
 * [will_paginate](https://github.com/mislav/will_paginate)
 * [select2](https://github.com/select2/select2)
-* [twitter bootstrap]([http://getbootstrap.com)
+* [twitter bootstrap](http://getbootstrap.com)
 * [Ryan Bates nested forms](http://railscasts.com/episodes/196-nested-model-form-revised)
