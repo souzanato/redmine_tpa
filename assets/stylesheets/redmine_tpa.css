@@ -1,3 +1,8 @@
-.container #tpa-content .jumbotron {
+.container.redmine-tpa .jumbotron {
     padding: 20px;
 }
+
+.container.redmine-tpa .jumbotron p{
+    font-size: 18px;
+}
+
