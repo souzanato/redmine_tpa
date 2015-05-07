@@ -40,8 +40,8 @@ If you want to contribute, please:
 
 ## License
  
-Redmine TPA Plugin is open source and released under the terms of the {GNU General Public License - GPL - v3}[https://github.com/hylozero/redmine_tpa/blob/master/license.txt].
-Check {GNU GPL v3 quick guide}[http://www.gnu.org/licenses/quick-guide-gplv3.html] for more information.
+Redmine TPA Plugin is open source and released under the terms of the [GNU General Public License - GPL - v3](https://github.com/hylozero/redmine_tpa/blob/master/license.txt).
+Check [GNU GPL v3 quick guide](http://www.gnu.org/licenses/quick-guide-gplv3.html) for more information.
 
 ## Credits
 * [redmine](http://www.redmine.org)
