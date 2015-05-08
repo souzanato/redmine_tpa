@@ -6,7 +6,7 @@ class Appraisal < ActiveRecord::Base
   validates_presence_of :start_date, unless: lambda { |a| a.template }
   validates_presence_of :appraisal_id, unless: lambda { |a| a.template }
   validates_uniqueness_of :name, allow_nil: true
-  attr_accessible :name, :description, :start_date, :end_date, :template, :appraisal_questions_attributes, :appraisal_template_id, :appraisee_ids, :appraisal_id, :appraiser_ids, :author_id, :appraiser_note
+  attr_accessible :name, :description, :start_date, :end_date, :template, :appraisal_questions_attributes, :appraisal_template_id, :appraisee_ids, :appraisal_id, :appraiser_ids, :author_id, :appraisers_note
 
   has_many :appraisal_questions, dependent: :destroy
   accepts_nested_attributes_for :appraisal_questions, allow_destroy: true

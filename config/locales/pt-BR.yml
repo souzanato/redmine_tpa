@@ -76,7 +76,7 @@ pt-BR:
   appraisal_template_name: "Nome"
   appraisal_template_description: "Descrição"
   appraisal_template_author: "Autor"
-  appraisal_appraiser_note: "Observações do Avaliador"
+  appraisal_appraisers_note: "Observações do Avaliador"
 
   # Helpers
   helpers:

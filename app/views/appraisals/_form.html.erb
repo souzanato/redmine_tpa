@@ -56,10 +56,10 @@
 
     <legend><%= t('appraisal_other_info') %></legend>
     <div class="form-group">
-      <%= f.label t('appraisal_appraiser_note'), :class => 'col-sm-2 control-label' %>
+      <%= f.label t('appraisal_appraisers_note'), :class => 'col-sm-2 control-label' %>
       <div class="col-sm-10">
-        <%= f.text_area :appraiser_note, :class => 'form-control text_area', style: "width: 100%;" %>
-        <span class="span-danger"><%= display_errors(f.object, :appraiser_note) %></span> 
+        <%= f.text_area :appraisers_note, :class => 'form-control text_area', style: "width: 100%;" %>
+        <span class="span-danger"><%= display_errors(f.object, :appraisers_note) %></span> 
       </div>
     </div>
 

@@ -1,10 +1,10 @@
 <%= stylesheet_link_tag 'redmine_tpa', :plugin => 'redmine_tpa' %>
 <%= stylesheet_link_tag 'font-awesome.min', :plugin => 'redmine_tpa' %>
 
-<% unless @appraisal.appraiser_note.blank? %>
-    <dt class="appraisal-lists"><i class="fa fa-angle-double-right"></i> <%= t('appraisal_appraiser_note') %></dt>
+<% unless @appraisal.appraisers_note.blank? %>
+    <dt class="appraisal-lists"><i class="fa fa-angle-double-right"></i> <%= t('appraisal_appraisers_note') %></dt>
     <dd class="appraisal-lists">
-        <%=@appraisal.appraiser_note%>
+        <%=@appraisal.appraisers_note%>
     </dd>
 <% end %>
 
