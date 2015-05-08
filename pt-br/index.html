@@ -1,4 +1,3 @@
-    <meta name="description" content="">
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -13,34 +12,38 @@
     <title>Redmine TPA</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="assets/stylesheets/bootstrap.min.css" rel="stylesheet">
+    <link href="../assets/stylesheets/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="assets/stylesheets/navbar-fixed-top.css" rel="stylesheet">
+    <link href="../assets/stylesheets/navbar-fixed-top.css" rel="stylesheet">
+
+    <!-- flags css -->
+    <link href="../assets/stylesheets/common.css" rel="stylesheet">
+    <link href="../assets/stylesheets/flags24.css" rel="stylesheet">
 
     <!-- redmine_tpa css -->
-    <link href="assets/stylesheets/redmine_tpa.css" rel="stylesheet">
+    <link href="../assets/stylesheets/redmine_tpa.css" rel="stylesheet">
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="assets/javascripts/ie-emulation-modes-warning.js"></script>
+    <!--[if lt IE 9]><script src="../../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="../assets/javascripts/ie-emulation-modes-warning.js"></script>
 
-    <script src="assets/javascripts/jquery-1.11.2.min.js"></script>
-    <script src="assets/javascripts/bootstrap.min.js"></script>
+    <script src="../assets/javascripts/jquery-1.11.2.min.js"></script>
+    <script src="../assets/javascripts/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="assets/javascripts/ie10-viewport-bug-workaround.js"></script>
+    <script src="../assets/javascripts/ie10-viewport-bug-workaround.js"></script>
 
     <!-- freezeframe.js  -->
-    <script type="text/javascript" src="assets/javascripts/gif_post.js"></script>
-    <link href="assets/stylesheets/gif_post.css" rel="stylesheet">
+    <script type="text/javascript" src="../assets/javascripts/gif_post.js"></script>
+    <link href="../assets/stylesheets/gif_post.css" rel="stylesheet">
 
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
     <!-- Magnific Popup core CSS file -->
-    <link rel="stylesheet" href="assets/stylesheets/magnific-popup.css"> 
+    <link rel="stylesheet" href="../assets/stylesheets/magnific-popup.css"> 
 
     <!-- Magnific Popup core JS file -->
-    <script src="assets/javascripts/jquery.magnific-popup.min.js"></script>
+    <script src="../assets/javascripts/jquery.magnific-popup.min.js"></script>
 
     <script type="text/javascript">
     $(document).ready(function(){
@@ -70,6 +73,20 @@
         <div class="navbar-header">
           <a class="navbar-brand" href="https://github.com/hylozero/redmine_tpa">redmine_tpa</a>
         </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <div class="f24 navbar-brand pull-right">
+                <a href="index.html"><i class="flag br"></i></a>
+              </div>
+            </li>
+            <li>
+              <div class="f24 navbar-brand pull-right">
+                <a href="../index.html"><i class="flag us"></i></a>
+              </div>
+            </li>
+          </ul>
+        </div>
       </div>
     </nav>
 
@@ -85,14 +102,11 @@
         </div>
         <div class="col-md-8 col-sm-8 col-xs-12">
           <div class="jumbotron">
-            <p>Redmine TPA (Tags for Performance Appraisal) is a redmine plugin that helps Performance Appraisals. It makes possible to link issues to pre-established criteria or organizational objectives.</p>
-
-            <p>Redmine TPA (Tags for Performance Appraisal) é um plugin redmine que auxilia avaliações de desempenho. Ele torna possível a ligação de tarefas à critérios pré-estabelecidos ou objetivos organizacionais.</p>
+           <p>Redmine TPA (Tags for Performance Appraisal) é um plugin redmine que auxilia avaliações de desempenho. Ele torna possível a ligação de tarefas à critérios pré-estabelecidos ou objetivos organizacionais.</p>
 
             <hr>
             
-            <div class="col-md-2"><p><i class="fa fa-github"></i> <a href="https://github.com/hylozero/redmine_tpa">Github</a></p></div>
-            <div style="clear: both;"></div>
+            <p><i class="fa fa-github"></i> <a href="https://github.com/hylozero/redmine_tpa">Github</a></p>
 
           </div>
         </div>
@@ -101,44 +115,31 @@
         </div>
 
         <div class="col-md-4 col-sm-4 col-xs-12">
-          <h4>
-            Create Appraisal Templates<br/>
-            <small>Crie modelos de avaliação</small></h4>
-            <hr>
-            <h5>Fields<br/>
-            <small>Name, Description and Criteria with sublevels</small>
-            </h5>
+          <h4>Create Modelos de Avaliações</h4>
         </div>
 
         <div class="col-md-8 col-sm-8 col-xs-12">
-          <a href="assets/images/modelo_avaliacao.png" class='magnific-popup' title="Create Appraisal Templates / Crie modelos de avaliação">
-            <img id="modelo-avaliacao" src="assets/images/modelo_avaliacao.png" class="example-image"/>
+          <a href="../assets/images/modelo_avaliacao.png" class='magnific-popup' title="Create Appraisal Templates / Crie modelos de avaliação">
+            <img id="modelo-avaliacao" src="../assets/images/modelo_avaliacao.png" class="example-image"/>
+          </a>
+          <hr>
+        </div>
+
+        <div class="col-md-4 col-sm-4 col-xs-12">
+          <h4>Crie Avaliações</h4>
+        </div>
+
+        <div class="col-md-8 col-sm-8 col-xs-12">
+          <a href="../assets/images/avaliacao.png" class='magnific-popup' title="Create Appraisals / Crie Avaliações">
+            <img src="../assets/images/avaliacao.png" class="example-image"/>
           </a>
           <hr>
         </div>
 
         <div class="col-md-4 col-sm-4 col-xs-12">
           <h4>
-            Create Appraisals<br/>
-            <small>Crie Avaliações</small>
-            <hr>
-            <h5>Fields<br/>
-            <small>Template, One or more Appraisers, One or more Appraisees, Start at, End at and Appraiser note.</small>
-            </h5>
-          </h4>
-        </div>
-
-        <div class="col-md-8 col-sm-8 col-xs-12">
-          <a href="assets/images/avaliacao.png" class='magnific-popup' title="Create Appraisals / Crie Avaliações">
-            <img src="assets/images/avaliacao.png" class="example-image"/>
-          </a>
-          <hr>
-        </div>
-
-        <div class="col-md-4 col-sm-4 col-xs-12">
-          <h4>
-            Link issues to criteria<br/>
-            <small>Una tarefas à critérios</small>
+            Conecte suas tarefas à critérios de avaliação<br/>
+            <small>para auxiliar seu avaliador</small>
 <!--             <hr>
             <h5>Procedure:</h5>
             <small>Open an issue, click on "Marcar para Avaliação" (pt-BR), select an appraisal and click on the tag icon located to the left of a criteria that you wish to link to the issue.</small>
@@ -149,22 +150,22 @@
         </div>
 
         <div class="col-md-8 col-sm-8 col-xs-12">
-          <a href="assets/images/criar_tag.png" class='magnific-popup' title="Link criteria to issues / Una critérios à tarefas">
-            <img src="assets/images/criar_tag.png" class="example-image"/>
+          <a href="../assets/images/criar_tag.png" class='magnific-popup' title="Link criteria to issues / Una critérios à tarefas">
+            <img src="../assets/images/criar_tag.png" class="example-image"/>
           </a>
           <hr>
         </div>
 
         <div class="col-md-4 col-sm-4 col-xs-12">
           <h4>
-            Check the issues and criteria that have been linked<br/>
-            <small>Visualize marcações</small>
+            Visualize as tarefas e critérios<br/>
+            <small>que foram conectados</small>
           </h4>
-        </div>
+        </div><a href="pt-br/index.html">
 
         <div class="col-md-8 col-sm-8 col-xs-12">
-          <a href="assets/images/visualizar_tag.png" class='magnific-popup' title="View tags / Visualize marcações">
-            <img src="assets/images/visualizar_tag.png" class="example-image"/>
+          <a href="../assets/images/visualizar_tag.png" class='magnific-popup' title="View tags / Visualize marcações">
+            <img src="../assets/images/visualizar_tag.png" class="example-image"/>
           </a>
         </div>
     </div> <!-- /container -->
