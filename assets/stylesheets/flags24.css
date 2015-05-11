@@ -1,3 +1,10 @@
+.f24 {
+	padding-right: 15px;
+}
+
+.flag-nav.navbar-nav {
+    margin: 0;
+}
 .f24 .flag {
 	background:url('../images/flags24.png') no-repeat;
 }
