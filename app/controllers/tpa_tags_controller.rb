@@ -4,6 +4,30 @@ class TpaTagsController < ApplicationController
     def index
       @appraisal = Appraisal.find(params[:appraisal_id])
       @user = User.find(params[:user_id])
+      # @tpa_tags_by_tracker = Issue
+      #   .select("trackers.name as tracker_name, issues.subject as issue_subject, IFNULL(count(tpa_tags.id), 0) as tags_count")
+      #   .joins("LEFT JOIN `tpa_tags` ON `tpa_tags`.`issue_id` = `issues`.`id`")
+      #   .joins("LEFT JOIN `trackers` ON `issues`.`tracker_id` = `trackers`.`id`")
+      #   .where("tpa_tags.user_id = ? and tpa_tags.appraisal_id = ?", @user.id, @appraisal.id)
+      #   .group("trackers.name, issues.subject")
+      # @tpa_tags =  Issue
+      #   .select("issues.subject as issue_subject, IFNULL(count(tpa_tags.id), 0) as tags_count")
+      #   .joins("LEFT JOIN `tpa_tags` ON `tpa_tags`.`issue_id` = `issues`.`id`")
+      #   .where("tpa_tags.user_id = ? and tpa_tags.appraisal_id = ?", @user.id, @appraisal.id)
+      #   .group("issues.subject")
+
+      @tpa_tags = Issue
+      .select("issues.subject as issue_subject, IFNULL(count(tpa_tags.id), 0) as tags_count")
+      .joins("left join tpa_tags on tpa_tags.issue_id = issues.id")
+      .where("tpa_tags.user_id = ? and tpa_tags.appraisal_id = ?", @user.id, @appraisal.id)
+      .group("issues.subject")
+
+      @tpa_tags_by_tracker = TpaTag
+        .select("trackers.name as tracker_name,  IFNULL(count(tpa_tags.id), 0) as tags_count")
+        .joins("left join issues on tpa_tags.issue_id = issues.id 
+            left join trackers on issues.tracker_id = trackers.id")
+        .where("tpa_tags.user_id = ? and tpa_tags.appraisal_id = ?", @user.id, @appraisal.id)
+        .group("trackers.name")        
 
       render_403 :message => t('notice_not_authorized') unless (User.current.id == params[:user_id].to_i or @appraisal.appraisers.include?(User.current))
     end

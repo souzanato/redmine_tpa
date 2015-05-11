@@ -14,6 +14,8 @@ pt-BR:
   welcome_to_redmine_tpa: "Bem-vindo ao Redmine TPA!"
   tpa: "Tags for Performance Appraisal"
   tags: "Marcações"
+  tags_graph: "Gráfico de Marcações"
+  tags_by_tracker_graph: "Gráfico de Marcações por Tipos de Tarefas"
 
   # Permissions
   permission_read_appraisals: "Ver Avaliações"
@@ -77,6 +79,8 @@ pt-BR:
   appraisal_template_description: "Descrição"
   appraisal_template_author: "Autor"
   appraisal_appraisers_note: "Observações do Avaliador"
+  tags_list: "Lista"
+  tags_graphs: "Gráfico"
 
   # Helpers
   helpers:
