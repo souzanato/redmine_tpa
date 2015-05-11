@@ -1,5 +1,5 @@
 <% unless @tpa_tag.errors.any? %>
-	$("#appraisal-<%=@tpa_tag.appraisal_id%>-appraisal-question-option-<%=@tpa_tag.appraisal_question_option_id%>-tag-form").html("<%= escape_javascript(render partial: 'tag_create_form', locals: {appraisal_question_option: @tpa_tag.appraisal_question_option, appraisal: @tpa_tag.appraisal})%>");
+	$("#appraisal-<%=@tpa_tag.appraisal_id%>-appraisal-question-option-<%=@tpa_tag.appraisal_question_option_id%>-tag-form").html("<%= escape_javascript(render partial: 'tag_create_form', locals: {appraisal_question_option: @tpa_tag.appraisal_question_option, appraisal: @tpa_tag.appraisal, issue_id: @tpa_tag.issue_id})%>");
 <% else %>
 	alert('ERROR')
 <% end %>
