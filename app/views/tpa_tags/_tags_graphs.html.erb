@@ -64,7 +64,7 @@ $(function () {
                 text: "<%=t('tags_by_tracker_graph')%>"
             },
             tooltip: {
-                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+                pointFormat: '<b>{point.percentage:.1f}%</b>'
             },
             plotOptions: {
                 pie: {
@@ -81,7 +81,6 @@ $(function () {
             },
             series: [{
                 type: 'pie',
-                name: 'Browser share',
                 data: [
                     <%=raw @tpa_tags_by_tracker.map{|tag| ["#{tag.tracker_name}", tag.tags_count]}.map(&:inspect).join(', ')%>
                 ]
