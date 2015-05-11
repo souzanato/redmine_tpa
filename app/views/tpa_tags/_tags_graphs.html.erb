@@ -9,59 +9,48 @@ $(function () {
             type: 'column'
         },
         title: {
-            text: 'Stacked column chart'
+            text: "<%=t('tags_graph')%>"
+        },
+        subtitle: {
+            text: ''
         },
         xAxis: {
-            categories: [<%=raw @tpa_tags.map{|tag| "#{tag.issue_subject[0..30]}"}.map(&:inspect).join(', ') %>]
+            categories: [
+                <%=raw @tpa_tags.map{|tag| "#{tag.option_content}"}.map(&:inspect).join(', ')%>
+            ],
+            crosshair: true
         },
         yAxis: {
             min: 0,
             title: {
-                text: 'Total fruit consumption'
-            },
-            stackLabels: {
-                enabled: true,
-                style: {
-                    fontWeight: 'bold',
-                    color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
-                }
+                text: "<%=t('tags_count')%>"
             }
-        },
-        legend: {
-            align: 'right',
-            x: -30,
-            verticalAlign: 'top',
-            y: 25,
-            floating: true,
-            backgroundColor: (Highcharts.theme && Highcharts.theme.background2) || 'white',
-            borderColor: '#CCC',
-            borderWidth: 1,
-            shadow: false
         },
         tooltip: {
-            formatter: function () {
-                return '<b>' + this.x + '</b><br/>' +
-                    this.series.name + ': ' + this.y + '<br/>' +
-                    'Total: ' + this.point.stackTotal;
-            }
+            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                '<td style="padding:0"><b>{point.y} </b></td></tr>',
+            footerFormat: '</table>',
+            shared: true,
+            useHTML: true
         },
         plotOptions: {
             column: {
-                stacking: 'normal',
-                dataLabels: {
-                    enabled: true,
-                    color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white',
-                    style: {
-                        textShadow: '0 0 3px black'
-                    }
-                }
+                pointPadding: 0.2,
+                borderWidth: 0,
+                width: '100%'
             }
         },
-        series: [<%=raw @tpa_tags.map{|tag| "{name: '#{tag.issue_subject}', data: [#{tag.tags_count}]}" }.map(&:inspect).join(', ').gsub('"','')%>]
+        series: [{
+            name: "<%=t('appraisal_question_content').pluralize%>",
+            data: [<%=raw @tpa_tags.map{|tag| tag.tags_count}.map(&:inspect).join(', ').gsub('"','')%>]
+        }
+
+        ]
     });
 });
 </script>
-
+<hr>
 <div id="tags-by-tracker-graph"></div>
 <script type="text/javascript">
     $(function () {

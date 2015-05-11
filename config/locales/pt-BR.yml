@@ -81,6 +81,7 @@ pt-BR:
   appraisal_appraisers_note: "Observações do Avaliador"
   tags_list: "Lista"
   tags_graphs: "Gráfico"
+  tags_count: "Nº de Marcações"
 
   # Helpers
   helpers:

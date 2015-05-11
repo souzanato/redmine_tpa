@@ -16,11 +16,12 @@ class TpaTagsController < ApplicationController
       #   .where("tpa_tags.user_id = ? and tpa_tags.appraisal_id = ?", @user.id, @appraisal.id)
       #   .group("issues.subject")
 
-      @tpa_tags = Issue
-      .select("issues.subject as issue_subject, IFNULL(count(tpa_tags.id), 0) as tags_count")
-      .joins("left join tpa_tags on tpa_tags.issue_id = issues.id")
-      .where("tpa_tags.user_id = ? and tpa_tags.appraisal_id = ?", @user.id, @appraisal.id)
-      .group("issues.subject")
+      @tpa_tags = AppraisalQuestionOption
+      .select("appraisal_question_options.content as option_content, IFNULL(count(tpa_tags.appraisal_question_option_id), 0) as tags_count")
+      .joins("LEFT JOIN tpa_tags on tpa_tags.appraisal_question_option_id = appraisal_question_options.id and tpa_tags.user_id = 3 and tpa_tags.appraisal_id = 5")
+      .joins("LEFT JOIN appraisal_questions on appraisal_question_options.appraisal_question_id = appraisal_questions.id")
+      .joins("LEFT JOIN appraisals on appraisal_questions.appraisal_id = appraisals.id")
+      .group("appraisal_question_options.content")
 
       @tpa_tags_by_tracker = TpaTag
         .select("trackers.name as tracker_name,  IFNULL(count(tpa_tags.id), 0) as tags_count")

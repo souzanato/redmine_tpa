@@ -30,7 +30,7 @@ For more information please visit http://hylozero.github.io/redmine_tpa
 	
 * Restart your redmine application.
 
-* You're good to go.
+* Youre good to go.
 
 ## Contributions
 

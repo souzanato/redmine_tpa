@@ -9,3 +9,5 @@
 .tag-icon {
 	color: #31708f;
 }
+
+.highcharts-container{width:100% !important; height:100% !important;}

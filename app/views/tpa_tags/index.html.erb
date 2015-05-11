@@ -12,18 +12,8 @@
   </dd>
 </dl>
 
-<div role="tabpanel">
-  <!-- Nav tabs -->
-  <ul class="nav nav-tabs" role="tablist">
-    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab"><%= t('tags_list') %></a></li>
-    <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab"><%=t('tags_graphs')%></a></li>
-  </ul>
 
-  <!-- Tab panes -->
-  <div class="tab-content">
-    <div role="tabpanel" class="tab-pane active" id="home"><br/><%= render :partial => 'tags_list' %></div>
-    <div role="tabpanel" class="tab-pane" id="profile"><br/><%= render :partial => 'tags_graphs' %></div>
-  </div>
+<%= render :partial => 'tags_graphs' %>
+<%= render :partial => 'tags_list' %>
 
-</div>
 <%= render partial: 'layout/append', locals: {bomb_text: t('helpers.links.reading'), bomb_icon: :eye} %>
