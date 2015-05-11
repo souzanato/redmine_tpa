@@ -42,7 +42,7 @@ $(function () {
             }
         },
         series: [{
-            name: "<%=t('appraisal_question_content').pluralize%>",
+            name: "<%=t('tags')%>",
             data: [<%=raw @tpa_tags.map{|tag| tag.tags_count}.map(&:inspect).join(', ').gsub('"','')%>]
         }
 
