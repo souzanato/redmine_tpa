@@ -42,6 +42,7 @@ pt-BR:
   insert_at_least_one_appraisal_appraiser: "Entre com pelo menos um avaliador"
   appraisal_already_in_progress: "esta avaliação já está em andamento"
   already_started_to_tagging: "ATENÇÃO: %{appraisee_name} já começou a fazer marcações para esta avaliação!"
+  appraisal_start_date_after_end_date: "Data inicial maior que data final"
 
   # Notice Messages
   appraisal_successfully_created: "Avaliação criada com sucesso"
