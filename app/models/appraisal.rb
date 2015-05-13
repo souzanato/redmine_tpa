@@ -24,17 +24,9 @@ class Appraisal < ActiveRecord::Base
 
   belongs_to :author, class_name: 'User', foreign_key: 'author_id'
 
-  validate :start_date_before_or_equal_end_date, if: lambda {|a| a.end_date.present? }
-  def start_date_before_or_equal_end_date
-    errors.add(:start_date, I18n.t('appraisal_start_date_after_end_date')) unless self.start_date <= self.end_date    
-  end
   # def appraisee_ids=(val)
   #   val.first.split(',').collect {|v| v.to_i}
   # end
-
-  def in_progress?
-    self.end_date.nil? or DateTime.now.to_date <= self.end_date
-  end
 
   def template_name_and_appraisers
     unless self.template

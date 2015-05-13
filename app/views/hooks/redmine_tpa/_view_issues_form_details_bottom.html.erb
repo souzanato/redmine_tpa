@@ -1,4 +1,4 @@
-<% if Appraisal.joins(:appraisal_appraisees).where('appraisal_appraisees.user_id = ?', User.current.id).select{|a| a.in_progress?}.any? and User.current.logged? %>
+<% if Appraisal.joins(:appraisal_appraisees).where('appraisal_appraisees.user_id = ?', User.current.id).any? and User.current.logged? %>
 	<hr>
 	<p><strong><%= t('redmine_tpa') %></strong></p>
 	<%= stylesheet_link_tag 'bootstrap-grid', :plugin => 'redmine_tpa' %>
@@ -12,7 +12,7 @@
 	<div id="tag-for-pa">
 		<div class="row-fluid">
 			<div class="col-md-12" id="appraisals">
-			<%= select_tag 'appraisal_id_select', options_from_collection_for_select(Appraisal.joins(:appraisees).where('appraisal_appraisees.user_id = ?', User.current.id).select{|a| a.in_progress?}, :id, :template_name_and_appraisers), prompt: t('helpers.select.prompt'), class: 'select2-local appraisal_id_select', id: issue.id, style: 'width: 100%;' %>
+			<%= select_tag 'appraisal_id_select', options_from_collection_for_select(Appraisal.joins(:appraisees).where('appraisal_appraisees.user_id = ?', User.current.id), :id, :template_name_and_appraisers), prompt: t('helpers.select.prompt'), class: 'select2-local appraisal_id_select', id: issue.id, style: 'width: 100%;' %>
 			</div>
 			<div class="col-md-12" id="questions-and-options"></div>
 		</div>
