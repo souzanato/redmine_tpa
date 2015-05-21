@@ -45,6 +45,9 @@ If you want to contribute, please:
 Redmine TPA Plugin is open source and released under the terms of the [GNU General Public License - GPL - v3](https://github.com/hylozero/redmine_tpa/blob/master/license.txt).
 Check [GNU GPL v3 quick guide](http://www.gnu.org/licenses/quick-guide-gplv3.html) for more information.
 
+## To Do
+* Infinite Scroll on select2 selects
+
 ## Credits
 * [redmine](http://www.redmine.org)
 * [paper_trail](https://github.com/airblade/paper_trail)
@@ -52,4 +55,3 @@ Check [GNU GPL v3 quick guide](http://www.gnu.org/licenses/quick-guide-gplv3.htm
 * [will_paginate](https://github.com/mislav/will_paginate)
 * [select2](https://github.com/select2/select2)
 * [twitter bootstrap](http://getbootstrap.com)
-* [Ryan Bates nested forms](http://railscasts.com/episodes/196-nested-model-form-revised)
