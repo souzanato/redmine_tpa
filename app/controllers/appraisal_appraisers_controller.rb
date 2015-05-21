@@ -5,9 +5,16 @@ class AppraisalAppraisersController < ApplicationController
     before_action :user_logged?
 
     def index
-       	appraisers_hash = User.where("login <> '' and login is not null").order('login').to_a.map(&:serializable_hash)        
-        appraisers_hash.each{|h| h.merge!(appraiser_info: "#{h["login"]} - #{h["firstname"]} #{h["lastname"]}")}
-        appraisers_hash = appraisers_hash.paginate(:page => params[:page], :per_page => params[:page_limit])
+       if params[:q]
+            appraisers_hash = User
+                .where("login <> '' and login is not null")
+                .where("LOWER(concat(users.firstname, users.lastname)) like \"%#{params[:q].downcase}%\" or LOWER(users.login) like \"%#{params[:q].downcase}%\"")
+                .order('login')
+                .to_a
+                .map(&:serializable_hash)        
+            appraisers_hash.each{|h| h.merge!(appraiser_info: "#{h["login"]} - #{h["firstname"]} #{h["lastname"]}")}
+            appraisers_hash = appraisers_hash.paginate(:page => params[:page], :per_page => params[:page_limit])
+       end
 
         respond_to do |format|  
             format.json { 
